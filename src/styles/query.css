@@ -1,0 +1,76 @@
+/* Base font size */
+html {
+    font-size: 62.5%; /* 1rem = 10px */
+}
+  
+  /* Media Query for Tablets and Small Desktops */
+  @media (max-width: 1024px) {
+    html {
+        font-size: 50%; /* Decrease font size for tablets and small screens */
+    }
+  
+    .portfolio-grid {
+        grid-template-columns: 1fr 1fr 1fr; /* Three columns for tablets/small desktops */
+    }
+  
+    .toggle-btn {
+        display: block; /* Show toggle button */
+        font-size: 3rem; /* Increase the size of the hamburger icon */
+    }
+  }
+  
+  /* Media Query for Mobile Devices */
+  @media (max-width: 768px) {
+    html {
+        font-size: 42.5%;
+    }
+
+    .home-content {
+        text-align: left;
+    }
+  
+    .portfolio-grid {
+        grid-template-columns: 1fr 1fr; /* Two columns for mobile */
+    }
+  
+    .content {
+        margin-left: 0;
+        width: 100%; /* Adjust content to fill the screen */
+    }
+  
+    .vertical-navbar {
+        left: -140px; /* Initially hide navbar */
+    }
+  
+    .toggle-btn {
+        display: block;
+    }
+
+    .portfolio-tabs {
+        flex-wrap: wrap;
+    }
+    .portfolio-tabs button {
+        max-width: 20rem;
+    }
+  }
+  
+  /* Full-width Layout for Small Devices */
+  @media (max-width: 480px) {
+    .portfolio-grid {
+        grid-template-columns: 1fr; /* One column for very small screens */
+    }
+  
+    body {
+        font-size: 40%; /* Further decrease font size on small screens */
+    }
+  
+    .toggle-btn {
+        font-size: 4rem; /* Larger hamburger icon */
+    }
+    .content {
+        margin-left: 0;
+        padding: 1rem;
+        width: 100%;
+      }
+  }
+  
