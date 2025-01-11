@@ -1,32 +1,28 @@
-// src/App.jsx
-import NavBar from './components/NavBar';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Header from './components/Header';
+import Footer from './components/Footer';
 import Home from './pages/Home';
-import Contact from './pages/Contact';
-import Portfolio from './pages/Portfolio';
-import About from './pages/About';
-import FrontEnd from './pages/FrontEnd';
-import BackEnd from './pages/BackEnd';
-import Challenges from './pages/Challenges';
-import CoreFullStack from './pages/CoreFullStack';
+import AboutPage from './pages/AboutPage';
+import PortfolioPage from './pages/PortfolioPage';
+import ContactPage from './pages/ContactPage';
+
+import "./styles/components.css";
 
 function App() {
   return (
     <Router>
-      <NavBar />
+      <Header />
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/portfolio" element={<Portfolio />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/portfolio/front-end" element={<FrontEnd />} />
-        <Route path="/portfolio/back-end" element={<BackEnd />} />
-        <Route path="/portfolio/challenges" element={<Challenges />} />
-        <Route path="/portfolio/core-full-stack" element={<CoreFullStack />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/about" element={<AboutPage />} />
+        <Route path="/portfolio" element={<PortfolioPage />} />
+        <Route path="/contact" element={<ContactPage />} />
       </Routes>
+      <Footer />
     </Router>
   );
 }
 
 export default App;
+
 
