@@ -1,63 +1,38 @@
-/* global.css */
 body {
     margin: 0;
     font-family: Arial, sans-serif;
   }
-  
-  /* components.css */
-  .header {
-    display: flex;
-    justify-content: space-between;
-    padding: 1rem;
-    background-color: #333;
-    color: #fff;
+
+  html {
+    background: linear-gradient(to bottom right, #1a1c56, #3f0071, #800043);
+    background-size: 200% 200%;
+    animation: gradientMove 10s ease infinite;
   }
   
-  .hero {
-    text-align: center;
-    padding: 5rem 1rem;
-    background: #f0f0f0;
-    height: 69.4vh;
+  @keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
   }
 
-  .hero-btn {
-    color: teal;
-    padding: 10px;
-    border-radius: 20px;
-    border: none;
-    text-transform: uppercase;
-    font-weight: bold;
-    background-color: #fff;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
-    transition: transform 0.3s ease;
+@media (max-width: 768px) {
+  .about {
+    padding: 20px;
   }
 
-  .hero-btn:hover {
-    transform: scale(1.05);
-  }
-
-  .portfolio h2 {
-    margin-left: 30px;
+  .about h2 {
     font-size: 2rem;
   }
-  
-  .portfolio .project-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1rem;
+
+  .skills h3 {
+    font-size: 1.75rem;
   }
 
-  .header nav ul {
-    display: flex;
-    gap: 15px;
+  .skills h1 {
+    font-size: 1.25rem;
   }
 
-  .header nav li a {
-    color: #fff;
-    text-decoration: none;
+  .skills li {
+    font-size: 1rem;
   }
-
-  .header nav li {
-    list-style-type: none;
-  }
-  
+}

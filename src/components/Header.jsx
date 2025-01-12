@@ -37,7 +37,7 @@ function ResponsiveAppBar() {
   };
 
   return (
-    <AppBar position="static" sx={{ backgroundColor: "#284b63" }}>
+    <AppBar position="static" sx={{ background: "linear-gradient(to bottom right, #1a1c56, #3f0071)" }}>
     <Container maxWidth="xl">
       <Toolbar disableGutters>
         <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
@@ -132,7 +132,7 @@ function ResponsiveAppBar() {
               <Link
                 to={`/${page.toLowerCase()}`}
                 style={{ color: 'white', textDecoration: 'none' }}
-                onMouseEnter={(e) => (e.target.style.color = '#3498db')} // Change color on hover
+                onMouseEnter={(e) => (e.target.style.color = '#FFD700')}
                 onMouseLeave={(e) => (e.target.style.color = 'white')} // Reset color on leave
               >
                 {page}
