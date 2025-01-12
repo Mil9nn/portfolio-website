@@ -9,7 +9,7 @@ function AboutPage() {
           <p>I am an aspiring Full Stack Developer with a strong foundation in both front-end and back-end technologies. After earning my Bachelor&apos;s degree in Mechanical Engineering, I transitioned into the world of software development, where I have gained experience in HTML, CSS, JavaScript, React, Node.js, and other modern web development frameworks.</p>
           <p> With a keen interest in building intuitive, responsive, and scalable applications, I am eager to continue learning and growing in the field. I approach challenges with an analytical and solution-oriented mindset, striving to deliver high-quality results that meet both user needs and business goals.</p>
         </div>
-        <h3>Skills</h3>
+        <h2>Skills</h2>
         <div className="skills">
           <div>
             <h4><i className="fas fa-cubes"></i>Programming</h4>

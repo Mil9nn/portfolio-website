@@ -1,19 +1,19 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-  }
+}
 
-  html {
-    background: linear-gradient(to bottom right, #1a1c56, #3f0071, #800043);
-    background-size: 200% 200%;
-    animation: gradientMove 10s ease infinite;
-  }
-  
-  @keyframes gradientMove {
+html {
+  background: linear-gradient(to bottom right, #1a1c56, #3f0071, #800043);
+  background-size: 200% 200%;
+  animation: gradientMove 10s ease infinite;
+}
+
+@keyframes gradientMove {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
     100% { background-position: 0% 50%; }
-  }
+}
 
 @media (max-width: 768px) {
   .about {
@@ -34,5 +34,17 @@ body {
 
   .skills li {
     font-size: 1rem;
+  }
+
+  .flexbox {
+    flex-direction: column;
+    justify-self: center;
+  }
+  .additional-info {
+    align-self: center;
+  }
+
+  .footer {
+    margin-top: 50px;
   }
 }
