@@ -6,13 +6,6 @@ body {
 html {
   background: linear-gradient(to bottom right, #1a1c56, #3f0071, #800043);
   background-size: 200% 200%;
-  animation: gradientMove 10s ease infinite;
-}
-
-@keyframes gradientMove {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
 }
 
 @media (max-width: 768px) {

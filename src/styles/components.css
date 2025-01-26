@@ -4,8 +4,10 @@
 .hero {
   text-align: center;
   padding: 5rem 1rem;
-  height: 69.4vh;
+  /* height: 69.4vh; */
   color: #fff;
+  width: 50%;
+  margin: auto;
 }
 
 .hero-btn {
