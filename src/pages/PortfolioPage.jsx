@@ -14,6 +14,8 @@ function PortfolioPage() {
                 title={project.title} 
                 description={project.description}
                 alt={project.alt}
+                gitRepoLink={project.gitRepoLink}
+                liveDemoLink={project.liveDemoLink}
               />
             ))}
           </div>

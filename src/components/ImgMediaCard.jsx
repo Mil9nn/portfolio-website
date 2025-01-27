@@ -19,8 +19,16 @@ function ImgMediaCard (props) {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small">Git Repo</Button>
-        <Button size="small">Live Demo</Button>
+        <Button 
+          size="small" 
+          href={props.gitRepoLink} // Link to GitHub repo
+          target="_blank" // Open in new tab
+        >
+          Git Repo
+        </Button>
+        <Button size="small" href={props.liveDemoLink} target="_blank">
+          Live Demo
+        </Button>
       </CardActions>
     </Card>
   );
