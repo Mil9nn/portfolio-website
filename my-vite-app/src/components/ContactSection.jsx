@@ -35,11 +35,11 @@ function ContactSection() {
     <div className="container mx-auto px-4 md:px-8 lg:px-12 mt-16 mb-12 transition-all duration-1000 transform opacity-100 translate-y-0">
       <h3 className="text-2xl md:text-3xl font-bold mb-8 border-l-4 border-purple-500 pl-4 inline-block bg-gradient-to-r from-purple-600 to-blue-500 bg-clip-text text-transparent">Get In Touch</h3>
       
-      <div className="bg-white dark:bg-gray-800 backdrop-blur-sm p-8 rounded-xl shadow-xl border border-gray-200 dark:border-gray-700">
+      <div className="bg-gray-800 backdrop-blur-sm p-8 rounded-xl shadow-xl border border-gray-700">
         {/* Contact Form */}
         <form onSubmit={handleSubmit} className="mb-6">
           <div className="mb-6">
-            <label htmlFor="email" className="block text-gray-700 dark:text-gray-300 mb-2 font-medium">Email</label>
+            <label htmlFor="email" className="block text-gray-300 mb-2 font-medium">Email</label>
             <div className="relative">
               <input
                 type="email"
@@ -47,7 +47,7 @@ function ContactSection() {
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
-                className="w-full bg-gray-50 dark:bg-gray-900 border-2 border-purple-300 dark:border-purple-700 rounded-lg p-3 pl-4 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300"
+                className="w-full bg-gray-900 border-2 border-purple-700 rounded-lg p-3 pl-4 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300 text-white"
                 required
                 placeholder="your.email@example.com"
               />
@@ -58,14 +58,14 @@ function ContactSection() {
           </div>
           
           <div className="mb-6">
-            <label htmlFor="message" className="block text-gray-700 dark:text-gray-300 mb-2 font-medium">Message</label>
+            <label htmlFor="message" className="block text-gray-300 mb-2 font-medium">Message</label>
             <textarea
               id="message"
               name="message"
               value={formData.message}
               onChange={handleChange}
               rows="5"
-              className="w-full bg-gray-50 dark:bg-gray-900 border-2 border-purple-300 dark:border-purple-700 resize-none rounded-lg p-4 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300"
+              className="w-full bg-gray-900 border-2 border-purple-700 resize-none rounded-lg p-4 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300 text-white"
               required
               placeholder="Write your message here..."
             ></textarea>
@@ -89,7 +89,7 @@ function ContactSection() {
             </button>
             
             {submitStatus === 'success' && (
-              <div className="ml-4 text-green-600 dark:text-green-400 flex items-center animate-fadeIn">
+              <div className="ml-4 text-green-400 flex items-center animate-fadeIn">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
                   <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                 </svg>
@@ -100,44 +100,44 @@ function ContactSection() {
         </form>
         
         {/* Contact Information */}
-        <div className="mt-8 pt-6 border-t border-gray-200 dark:border-gray-700">
+        <div className="mt-8 pt-6 border-t border-gray-700">
           <div className="flex flex-col md:flex-row justify-between gap-4">
             <div className="flex items-center space-x-3">
-              <div className="p-3 bg-blue-100 dark:bg-blue-900 rounded-full">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-blue-600 dark:text-blue-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <div className="p-3 bg-blue-900 rounded-full">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-blue-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
               </div>
               <div>
-                <p className="text-sm text-gray-500 dark:text-gray-400">Email</p>
-                <p className="text-gray-700 dark:text-gray-300">singhmilan314@gmail.com</p>
+                <p className="text-sm text-gray-400">Email</p>
+                <p className="text-gray-300">singhmilan314@gmail.com</p>
               </div>
             </div>
             
             <div className="flex items-center space-x-3">
-              <div className="p-3 bg-purple-100 dark:bg-purple-900 rounded-full">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-purple-600 dark:text-purple-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <div className="p-3 bg-purple-900 rounded-full">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-purple-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>
               </div>
               <div>
-                <p className="text-sm text-gray-500 dark:text-gray-400">Location</p>
-                <p className="text-gray-700 dark:text-gray-300">Jammu, India</p>
+                <p className="text-sm text-gray-400">Location</p>
+                <p className="text-gray-300">Jammu, India</p>
               </div>
             </div>
             
             <div className="flex items-center space-x-3">
-              <div className="p-3 bg-green-100 dark:bg-green-900 rounded-full">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-green-600 dark:text-green-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <div className="p-3 bg-green-900 rounded-full">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-green-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
                 </svg>
               </div>
               <div>
-                <p className="text-sm text-gray-500 dark:text-gray-400">Social</p>
+                <p className="text-sm text-gray-400">Social</p>
                 <div className="flex space-x-3 mt-1">
-                  <a href="#" className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400">LinkedIn</a>
-                  <a href="#" className="text-gray-700 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400">Twitter</a>
+                  <a href="#" className="text-gray-300 hover:text-blue-400">LinkedIn</a>
+                  <a href="#" className="text-gray-300 hover:text-purple-400">Twitter</a>
                 </div>
               </div>
             </div>

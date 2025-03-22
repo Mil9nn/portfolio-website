@@ -4,7 +4,7 @@ function SkillsSection(props) {
             <h3 className="text-2xl md:text-3xl font-bold mb-8 border-l-4 border-blue-500 pl-4 inline-block bg-gradient-to-r from-blue-600 to-blue-400 bg-clip-text text-transparent">Skills</h3>
 
             {/* Skills container with better styling */}
-            <div className="relative overflow-hidden bg-white dark:bg-gray-800 rounded-xl shadow-lg p-4 border border-gray-200 dark:border-gray-700">
+            <div className="relative overflow-hidden bg-gray-800 rounded-xl shadow-lg p-4 border border-gray-700">
                 <div className="flex animate-scroll">
                     {/* Skills in a scrollable container with proper sizing and better card design */}
                     <div className="flex gap-4 flex-nowrap">
@@ -36,9 +36,9 @@ function SkillsSection(props) {
 // Skill card component for cleaner rendering
 function SkillCard({ icon, name }) {
     return (
-        <div className="flex items-center gap-2 p-3 bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-700 dark:to-gray-800 rounded-lg shadow-md border border-gray-200 dark:border-gray-700 whitespace-nowrap transform transition-transform hover:scale-105">
+        <div className="flex items-center w-40 gap-2 p-3 bg-gradient-to-br from-gray-700 to-gray-800 rounded-lg shadow-md border border-gray-700 whitespace-nowrap transform transition-transform hover:scale-105">
             <img src={icon} alt={`${name}-logo`} className="w-6 h-6" />
-            <span className="text-gray-800 dark:text-gray-200 font-semibold">{name}</span>
+            <span className="text-gray-200 font-semibold">{name}</span>
         </div>
     );
 }
