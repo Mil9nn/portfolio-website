@@ -1,28 +1,32 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/portfolio.ico" />
-    <link href="/src/styles.css" rel="stylesheet">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Portfolio</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script>
-      // Check if the user has a theme preference saved
-      const savedTheme = localStorage.getItem('theme');
-      
-      if (savedTheme) {
-        // Apply saved theme
-        document.documentElement.classList.toggle('dark', savedTheme === 'dark');
-      } else {
-        // Apply system preference
-        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        document.documentElement.classList.toggle('dark', prefersDark);
-        localStorage.setItem('theme', prefersDark ? 'dark' : 'light');
-      }
-    </script>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/portfolio.ico" />
+  <link href="/src/styles.css" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio</title>
+</head>
+
+<body>
+  <div id="root"></div>
+  <script>
+    // Check if the user has a theme preference saved
+    const savedTheme = localStorage.getItem('theme');
+
+    if (savedTheme) {
+      // Apply saved theme
+      document.documentElement.classList.toggle('dark', savedTheme === 'dark');
+    } else {
+      // Apply system preference
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      document.documentElement.classList.toggle('dark', prefersDark);
+      localStorage.setItem('theme', prefersDark ? 'dark' : 'light');
+    }
+  </script>
+  <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
+  <script type="module" src="/src/main.jsx"></script>
+</body>
+
 </html>

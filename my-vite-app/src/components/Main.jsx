@@ -3,6 +3,7 @@ import ContactSection from "./ContactSection";
 import Header from './Header';
 import SkillsSection from './SkillsSection';
 import Projects from './Projects';
+import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 
 function Main() {
     const [isVisible, setIsVisible] = useState(false);
@@ -25,20 +26,21 @@ function Main() {
                         <h4 className="text-xl font-semibold mb-4 text-purple-400">Background</h4>
                         <div className="space-y-4">
                             <p className="text-gray-300 leading-relaxed">
-                            I am a Full Stack Developer with expertise in front-end and back-end technologies, including HTML, CSS, JavaScript, React, and Node.js.
+                                I am a Full Stack Developer with expertise in front-end and back-end technologies, including HTML, CSS, JavaScript, React, and Node.js.
                             </p>
                             <p className="text-gray-300 leading-relaxed">
-                            Leveraging my Bachelor's degree in Mechanical Engineering, I bring a unique problem-solving perspective to software development, enabling me to design efficient, scalable, and user-friendly applications.
+                                Leveraging my Bachelor's degree in Mechanical Engineering, I bring a unique problem-solving perspective to software development, enabling me to design efficient, scalable, and user-friendly applications.
                             </p>
                             <p className="text-gray-300 leading-relaxed">
-                            Passionate about building innovative solutions, I combine technical precision with creativity to tackle complex challenges. Outside of work, I stay updated with the latest web technologies, contribute to open-source projects, and enjoy outdoor activities to maintain a balanced lifestyle.
+                                Passionate about building innovative solutions, I combine technical precision with creativity to tackle complex challenges. Outside of work, I stay updated with the latest web technologies, contribute to open-source projects, and enjoy outdoor activities to maintain a balanced lifestyle.
                             </p>
                         </div>
                     </div>
-                    <img 
-                        src="/4627182.jpg" 
-                        alt="Profile" 
-                        className="rounded-xl max-w-xs w-full h-auto object-cover shadow-lg transform transition-transform duration-500 hover:scale-105"
+                    <DotLottieReact
+                        src="https://lottie.host/2add6f21-9e90-4e0a-ad82-59da626bbd6c/zWWC5qEO2d.lottie"
+                        loop
+                        autoplay
+                        style={{ width: "350px", height: "300px" }}
                     />
                 </div>
 

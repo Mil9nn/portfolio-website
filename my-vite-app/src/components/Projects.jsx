@@ -15,10 +15,10 @@ function Projects() {
             id: 2,
             name: "Weather Forecast App",
             description: "A modern weather application that provides accurate forecasts for any location. Features include 7-day predictions, humidity levels, and wind speed indicators.",
-            image: "/images/weather-app.jpg",
-            technologies: ["JavaScript", "HTML5", "CSS3", "Weather API", "Geolocation API"],
-            github: "https://github.com/yourusername/weather-forecast-app",
-            demo: "https://weather-forecast-app-demo.netlify.app"
+            image: "/images/weather-app.png",
+            technologies: ["JavaScript", "React", "HTML5", "Tailwind CSS", "Weather API", "Geolocation API"],
+            github: "https://github.com/Mil9nn/PRODIGY_WD_05",
+            demo: ""
         },
         {
             id: 3,
