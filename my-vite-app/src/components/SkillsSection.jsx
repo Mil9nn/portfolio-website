@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 
-function SkillsSection(props) {
+function SkillsSection() {
     const [isPaused, setIsPaused] = useState(false);
     const scrollRef = useRef(null);
     
@@ -32,7 +32,7 @@ function SkillsSection(props) {
     }, [isPaused]);
 
     return (
-        <div className={`container mx-auto px-4 md:px-8 lg:px-12 mt-16 transition-all duration-1000 delay-500 transform ${props.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+        <div className="container mx-auto px-4 md:px-8 lg:px-12 mt-16">
             <h3 className="text-2xl md:text-3xl font-bold mb-8 border-l-4 border-blue-500 pl-4 inline-block bg-gradient-to-r from-blue-600 to-blue-400 bg-clip-text text-transparent">Skills</h3>
             
             <div 
