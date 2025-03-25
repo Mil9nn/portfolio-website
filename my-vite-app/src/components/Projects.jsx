@@ -10,15 +10,6 @@ function Projects() {
     const projects = [
         {
             id: 1,
-            name: "E-Commerce Dashboard",
-            description: "A responsive dashboard for online stores with real-time analytics, inventory management, and sales tracking. Built with React, Node.js, and MongoDB.",
-            image: "/images/ecommerce-dashboard.jpg",
-            technologies: ["React", "Node.js", "Express", "MongoDB", "Chart.js"],
-            github: "https://github.com/yourusername/ecommerce-dashboard",
-            demo: "https://ecommerce-dashboard-demo.herokuapp.com"
-        },
-        {
-            id: 2,
             name: "Weather Forecast App",
             description: "A modern weather application that provides accurate forecasts for any location. Features include 7-day predictions, humidity levels, and wind speed indicators.",
             image: "/images/weather-app.png",
@@ -27,21 +18,12 @@ function Projects() {
             demo: ""
         },
         {
-            id: 3,
-            name: "Task Management System",
-            description: "A collaborative project management tool with task assignment, progress tracking, and deadline notifications. Includes user authentication and role-based permissions.",
-            image: "/images/task-management.jpg",
-            technologies: ["React", "Tailwind CSS", "Firebase", "Redux", "Authentication"],
-            github: "https://github.com/yourusername/task-management-system",
-            demo: "https://task-management-system-demo.vercel.app"
-        },
-        {
-            "id": 3,
+            "id": 2,
             "name": "Password Manager",
             "description": "A secure and user-friendly password manager that allows users to store, delete and edit passwords for websites, and manage their credentials safely. Features include encryption, autofill and categorized storage to be included soon",
             "image": "/images/password-manager.png",
-            "technologies": ["JavaScript", "React", "Node.js", "MongoDB", "Express", "bcrypt.js", "Tailwind CSS"],
-            "github": "https://github.com/Mil9nn/password-manager",
+            "technologies": ["React", "Node.js", "MongoDB", "Express", "bcrypt.js", "Tailwind CSS"],
+            "github": "https://github.com/Mil9nn/Password_Manager",
             "demo": ""
         }        
     ];
