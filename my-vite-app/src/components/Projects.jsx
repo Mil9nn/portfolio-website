@@ -28,7 +28,16 @@ function Projects() {
             technologies: ["React", "Tailwind CSS", "Firebase", "Redux", "Authentication"],
             github: "https://github.com/yourusername/task-management-system",
             demo: "https://task-management-system-demo.vercel.app"
-        }
+        },
+        {
+            "id": 3,
+            "name": "Password Manager",
+            "description": "A secure and user-friendly password manager that allows users to store, delete and edit passwords for websites, and manage their credentials safely. Features include encryption, autofill and categorized storage to be included soon",
+            "image": "/images/password-manager.png",
+            "technologies": ["JavaScript", "React", "Node.js", "MongoDB", "Express", "bcrypt.js", "Tailwind CSS"],
+            "github": "https://github.com/Mil9nn/password-manager",
+            "demo": ""
+        }        
     ];
 
     return (
@@ -66,14 +75,6 @@ function Projects() {
                                     className="flex-1 py-2 bg-gray-700 text-white text-center rounded-lg hover:bg-gray-600 transition-colors duration-300"
                                 >
                                     GitHub
-                                </a>
-                                <a 
-                                    href={project.demo} 
-                                    target="_blank" 
-                                    rel="noopener noreferrer"
-                                    className="flex-1 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white text-center rounded-lg hover:from-blue-700 hover:to-purple-700 transition-colors duration-300"
-                                >
-                                    Live Demo
                                 </a>
                             </div>
                         </div>

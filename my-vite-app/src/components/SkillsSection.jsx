@@ -1,29 +1,65 @@
+import React, { useState, useEffect, useRef } from 'react';
+
 function SkillsSection(props) {
+    const [isPaused, setIsPaused] = useState(false);
+    const scrollRef = useRef(null);
+    
+    // Use manual scroll positioning with requestAnimationFrame for better performance
+    useEffect(() => {
+        let scrollPosition = 0;
+        let animationFrameId;
+        const scrollContainer = scrollRef.current;
+        const firstSet = scrollContainer.querySelector('.skill-set-1');
+        
+        const animate = () => {
+            if (!isPaused && scrollContainer) {
+                // Reset position when first set is scrolled out of view
+                if (scrollPosition >= firstSet.offsetWidth) {
+                    scrollPosition = 0;
+                }
+                
+                scrollPosition += 2; // Reduced speed for smoother scrolling
+                scrollContainer.style.transform = `translateX(-${scrollPosition}px)`;
+                animationFrameId = requestAnimationFrame(animate);
+            }
+        };
+        
+        animationFrameId = requestAnimationFrame(animate);
+        
+        return () => {
+            cancelAnimationFrame(animationFrameId);
+        };
+    }, [isPaused]);
+
     return (
         <div className={`container mx-auto px-4 md:px-8 lg:px-12 mt-16 transition-all duration-1000 delay-500 transform ${props.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             <h3 className="text-2xl md:text-3xl font-bold mb-8 border-l-4 border-blue-500 pl-4 inline-block bg-gradient-to-r from-blue-600 to-blue-400 bg-clip-text text-transparent">Skills</h3>
-
-            {/* Skills container with better styling */}
-            <div className="relative overflow-hidden bg-gray-800 rounded-xl shadow-lg p-4 border border-gray-700">
-                <div className="flex animate-scroll">
-                    {/* Skills in a scrollable container with proper sizing and better card design */}
-                    <div className="flex gap-4 flex-nowrap">
+            
+            <div 
+                className="relative overflow-hidden bg-gray-800 rounded-xl shadow-lg p-4 border border-gray-700"
+                onMouseEnter={() => setIsPaused(true)} 
+                onMouseLeave={() => setIsPaused(false)}
+                onTouchStart={() => setIsPaused(true)}
+                onTouchEnd={() => setIsPaused(false)}
+            >
+                <div className="flex" ref={scrollRef}>
+                    {/* First set of skills */}
+                    <div className="flex gap-4 flex-nowrap skill-set-1">
                         {skillItems.map((skill, index) => (
-                            <SkillCard 
+                            <SkillCard
                                 key={`skill-1-${index}`}
-                                icon={skill.icon} 
-                                name={skill.name} 
+                                icon={skill.icon}
+                                name={skill.name}
                             />
                         ))}
                     </div>
-
-                    {/* Duplicate for continuous scrolling effect with consistent styling */}
-                    <div className="flex gap-4 flex-nowrap">
+                    {/* Duplicate for continuous scrolling effect */}
+                    <div className="flex gap-4 flex-nowrap skill-set-2">
                         {skillItems.map((skill, index) => (
-                            <SkillCard 
+                            <SkillCard
                                 key={`skill-2-${index}`}
-                                icon={skill.icon} 
-                                name={skill.name} 
+                                icon={skill.icon}
+                                name={skill.name}
                             />
                         ))}
                     </div>

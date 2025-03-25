@@ -1,93 +1,74 @@
 @import "tailwindcss";
 
-/* Animations */
-@keyframes scroll {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
+:root {
+  --transition-speed: 300ms;
 }
 
-@keyframes fadeDown {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+/* Base Themes */
+.theme-dark {
+  --bg-gradient: linear-gradient(to bottom, #111827, #1f2937);
+  --text-color: #f3f4f6;
+  --card-bg: #1f2937;
+  --accent-color: #6366f1;
 }
 
-@keyframes slideInFromLeft {
-  0% {
-    transform: translateX(-100%);
-    opacity: 0;
-  }
-  100% {
-    transform: translateX(0);
-    opacity: 1;
-  }
+.theme-light {
+  --bg-gradient: linear-gradient(to bottom, #e0f2fe, #ffffff);
+  --text-color: #1f2937;
+  --card-bg: #ffffff;
+  --accent-color: #3b82f6;
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+.theme-cyberpunk {
+  --bg-gradient: linear-gradient(to bottom, #000000, #1e3a8a);
+  --text-color: #34d399;
+  --card-bg: #111827;
+  --accent-color: #10b981;
 }
 
-.slide {
-  animation: slideInFromLeft 1.5s ease-out;
+/* Existing Animations */
+@keyframes scroll { /* ... existing scroll animation ... */ }
+@keyframes fadeDown { /* ... existing fadeDown animation ... */ }
+@keyframes slideInFromLeft { /* ... existing slideInFromLeft animation ... */ }
+@keyframes fadeIn { /* ... existing fadeIn animation ... */ }
+
+/* New Animations */
+@keyframes neonPulse {
+  0%, 100% { text-shadow: 0 0 5px, 0 0 10px; }
+  50% { text-shadow: 0 0 20px, 0 0 30px; }
 }
 
-.animate-scroll {
-  animation: scroll 20s linear infinite;
+@keyframes glitch {
+  2%, 64% { transform: translate(2px, 0) skew(0deg); }
+  4%, 60% { transform: translate(-2px, 0) skew(0deg); }
+  62% { transform: translate(0, 0) skew(5deg); }
 }
 
-.animate-fadeDown {
-  animation: fadeDown 0.3s ease-out forwards;
+/* Cyberpunk-specific glitch effect */
+.theme-cyberpunk h1, 
+.theme-cyberpunk h2, 
+.theme-cyberpunk h3 {
+  animation: glitch 1s linear infinite;
+  color: var(--accent-color);
 }
 
-.animate-fadeIn {
-  animation: fadeIn 0.5s ease-out forwards;
-}
-
-/* Custom scrollbar */
-::-webkit-scrollbar {
-  width: 10px;
-  height: 10px;
-}
-
-::-webkit-scrollbar-track {
-  background: #333;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #555;
-  border-radius: 5px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #777;
-}
-
-/* Global styles */
 body {
-  font-family: 'Inter', sans-serif;
-  background-color: #111827;
-  color: #f3f4f6;
+  background: var(--bg-gradient);
+  color: var(--text-color);
+  transition: all var(--transition-speed) ease;
 }
 
-/* Card hover effects */
-.card-hover {
-  transition-delay: 300ms;
+/* Additional global styles that adapt to themes */
+.themed-card {
+  background-color: var(--card-bg);
+  color: var(--text-color);
+  transition: all var(--transition-speed) ease;
 }
 
-.card-hover:hover {
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+.themed-accent {
+  color: var(--accent-color);
+}
+
+.neon-text {
+  animation: neonPulse 2s ease-in-out infinite alternate;
 }

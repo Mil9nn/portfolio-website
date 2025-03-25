@@ -29,10 +29,10 @@ function Header() {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-6">            
-            <a href="https://github.com/Mil9nn" className={`${isScrolled ? 'text-white hover:text-yellow-300' : 'text-blue-300 hover:text-purple-300'} font-bold py-2 px-4 rounded-lg hover:underline transition-all duration-300 cursor-pointer`}>
+            <a href="/projects" className={`${isScrolled ? 'text-white hover:text-yellow-300' : 'text-blue-300 hover:text-purple-300'} font-bold py-2 px-4 rounded-lg hover:underline transition-all duration-300 cursor-pointer`}>
               View my Work
             </a>
-            <button className="bg-gradient-to-r from-blue-600 to-purple-700 text-white font-bold py-2.5 px-6 rounded-full hover:shadow-lg hover:shadow-blue-500/50 transform hover:scale-105 active:scale-95 transition-all duration-300 cursor-pointer flex items-center gap-2">
+            <button onClick={() => {alert("Resume is not available yet!")}} className="bg-gradient-to-r from-blue-600 to-purple-700 text-white font-bold py-2.5 px-6 rounded-full hover:shadow-lg hover:shadow-blue-500/50 transform hover:scale-105 active:scale-95 transition-all duration-300 cursor-pointer flex items-center gap-2">
               <span>Download Resume</span>
               <img src="/svgs/download.svg" alt="download-icon" className="w-4 h-4" />
             </button>
@@ -54,7 +54,7 @@ function Header() {
         {isMenuOpen && (
           <div className="md:hidden py-4 pt-4 border-t border-amber-400/30 mt-3 animate-fadeDown">
             <div className="flex flex-col space-y-3">
-              <a href="https://github.com/Mil9nn" className="text-blue-300 font-bold py-3 px-4 rounded-lg hover:bg-gray-700 transition-all text-left">
+              <a href="/projects" className="text-blue-300 font-bold py-3 px-4 rounded-lg hover:bg-gray-700 transition-all text-left">
                 View my Work
               </a>
               <button className="bg-gradient-to-r from-blue-600 to-purple-700 text-white font-bold py-3 px-5 rounded-lg transition-all text-left hover:shadow-md">
