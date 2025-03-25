@@ -32,7 +32,7 @@ function Header() {
             <a href="/projects" className={`${isScrolled ? 'text-white hover:text-yellow-300' : 'text-blue-300 hover:text-purple-300'} font-bold py-2 px-4 rounded-lg hover:underline transition-all duration-300 cursor-pointer`}>
               View my Work
             </a>
-            <button onClick={() => {alert("Resume is not available yet!")}} className="bg-gradient-to-r from-blue-600 to-purple-700 text-white font-bold py-2.5 px-6 rounded-full hover:shadow-lg hover:shadow-blue-500/50 transform hover:scale-105 active:scale-95 transition-all duration-300 cursor-pointer flex items-center gap-2">
+            <button onClick={() => {alert("Resume is not available yet!")}} className="bg-gradient-to-r from-blue-600 to-purple-700 text-white animate-rotate font-bold py-2.5 px-6 rounded-full hover:shadow-lg hover:shadow-blue-500/50 transform hover:scale-105 active:scale-95 transition-all duration-300 cursor-pointer flex items-center gap-2">
               <span>Download Resume</span>
               <img src="/svgs/download.svg" alt="download-icon" className="w-4 h-4" />
             </button>

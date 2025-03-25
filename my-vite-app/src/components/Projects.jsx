@@ -1,6 +1,12 @@
 import React from 'react';
+import { useAnimationOnScroll } from '../hooks/UseAnimateOnScroll';
 
 function Projects() {
+    const projectSection = useAnimationOnScroll({
+            animationClass: 'animate-float',
+            threshold: 0.1
+        });
+
     const projects = [
         {
             id: 1,
@@ -41,7 +47,7 @@ function Projects() {
     ];
 
     return (
-        <div className="container mx-auto px-4 md:px-8 lg:px-12 py-16">
+        <div ref={projectSection.ref} className="container mx-auto px-4 md:px-8 lg:px-12 py-16">
             <h2 className="text-2xl md:text-3xl font-bold mb-12 text-center border-b-2 border-purple-500 pb-4 inline-block mx-auto bg-gradient-to-r from-purple-600 to-blue-500 bg-clip-text text-transparent">My Projects</h2>
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

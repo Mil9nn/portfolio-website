@@ -4,38 +4,65 @@
   --transition-speed: 300ms;
 }
 
-/* Base Themes */
-.theme-dark {
-  --bg-gradient: linear-gradient(to bottom, #111827, #1f2937);
-  --text-color: #f3f4f6;
-  --card-bg: #1f2937;
-  --accent-color: #6366f1;
+/* Comprehensive Animation Keyframes */
+@keyframes slideInFromLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
-.theme-light {
-  --bg-gradient: linear-gradient(to bottom, #e0f2fe, #ffffff);
-  --text-color: #1f2937;
-  --card-bg: #ffffff;
-  --accent-color: #3b82f6;
+@keyframes slideInFromRight {
+  0% {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
-.theme-cyberpunk {
-  --bg-gradient: linear-gradient(to bottom, #000000, #1e3a8a);
-  --text-color: #34d399;
-  --card-bg: #111827;
-  --accent-color: #10b981;
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
-/* Existing Animations */
-@keyframes scroll { /* ... existing scroll animation ... */ }
-@keyframes fadeDown { /* ... existing fadeDown animation ... */ }
-@keyframes slideInFromLeft { /* ... existing slideInFromLeft animation ... */ }
-@keyframes fadeIn { /* ... existing fadeIn animation ... */ }
+@keyframes fadeDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
-/* New Animations */
-@keyframes neonPulse {
-  0%, 100% { text-shadow: 0 0 5px, 0 0 10px; }
-  50% { text-shadow: 0 0 20px, 0 0 30px; }
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
 }
 
 @keyframes glitch {
@@ -44,31 +71,112 @@
   62% { transform: translate(0, 0) skew(5deg); }
 }
 
-/* Cyberpunk-specific glitch effect */
-.theme-cyberpunk h1, 
-.theme-cyberpunk h2, 
-.theme-cyberpunk h3 {
+@keyframes neonPulse {
+  0%, 100% { 
+    text-shadow: 0 0 5px rgba(51, 255, 255, 0.4), 
+                 0 0 10px rgba(255, 255, 255, 0.2);
+  }
+  50% { 
+    text-shadow: 0 0 20px rgba(51, 255, 255, 0.8), 
+                 0 0 30px rgba(255, 255, 255, 0.5);
+  }
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotateY(0deg)
+  }
+  to {
+    transform: rotateY(360deg);
+  }
+}
+
+/* Utility Animation Classes */
+.animate-slide-left {
+  animation: slideInFromLeft 1s ease-out;
+}
+
+.animate-slide-right {
+  animation: slideInFromRight 1s ease-out;
+}
+
+.animate-fade-down {
+  animation: fadeDown 1s ease-out;
+}
+
+.animate-pulse-soft {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-gradient-text {
+  background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #f9d56e);
+  background-size: 400% 400%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: gradientShift 10s ease infinite;
+}
+
+.animate-neon-text {
+  animation: neonPulse 2s ease-in-out infinite alternate;
+  color: #00ffff;
+}
+
+.animate-glitch-text {
   animation: glitch 1s linear infinite;
-  color: var(--accent-color);
+}
+
+.animate-rotate {
+  animation: rotate 10s linear infinite;
+}
+
+.animate-skills-scroll {
+  animation: scroll 20s linear infinite;
+}
+
+/* Themed Transitions */
+.theme-dark {
+  --bg-gradient: linear-gradient(to bottom, #111827, #1f2937);
+  --text-color: #f3f4f6;
+  --card-bg: #1f2937;
+  --accent-color: #6366f1;
+  transition: all var(--transition-speed) ease;
+}
+
+.theme-light {
+  --bg-gradient: linear-gradient(to bottom, #e0f2fe, #ffffff);
+  --text-color: #1f2937;
+  --card-bg: #ffffff;
+  --accent-color: #3b82f6;
+  transition: all var(--transition-speed) ease;
+}
+
+.theme-cyberpunk {
+  --bg-gradient: linear-gradient(to bottom, #000000, #1e3a8a);
+  --text-color: #34d399;
+  --card-bg: #111827;
+  --accent-color: #10b981;
+  transition: all var(--transition-speed) ease;
 }
 
 body {
   background: var(--bg-gradient);
   color: var(--text-color);
   transition: all var(--transition-speed) ease;
-}
-
-/* Additional global styles that adapt to themes */
-.themed-card {
-  background-color: var(--card-bg);
-  color: var(--text-color);
-  transition: all var(--transition-speed) ease;
-}
-
-.themed-accent {
-  color: var(--accent-color);
-}
-
-.neon-text {
-  animation: neonPulse 2s ease-in-out infinite alternate;
 }
