@@ -35,7 +35,7 @@ function Main() {
                     About Me
                 </h3>
 
-                <div className="flex flex-col md:flex-row items-center gap-8 bg-gray-800 p-8 rounded-xl shadow-xl overflow-hidden border border-gray-700 min-h-[70vh]">
+                <div className="flex flex-col md:flex-row items-center gap-8 p-8 rounded-xl shadow-xl overflow-hidden min-h-[70vh]">
                     {/* Background Section */}
                     <div className="flex-1 space-y-4">
                         <h4 className="text-xl font-semibold mb-4 text-purple-400">Background</h4>

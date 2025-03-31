@@ -32,12 +32,12 @@ function ContactSection() {
   };
 
   return (
-    <div className="container mx-auto px-4 md:px-8 lg:px-12 mt-16 mb-12 transition-all duration-1000 transform opacity-100 translate-y-0">
+    <div className="container mx-auto px-4 md:px-8 lg:px-12 mt-16 transition-all duration-1000 transform opacity-100 translate-y-0">
       <h3 className="text-2xl md:text-3xl font-bold mb-8 border-l-4 border-purple-500 pl-4 inline-block bg-gradient-to-r from-purple-600 to-blue-500 bg-clip-text text-transparent">Get In Touch</h3>
 
-      <div className="bg-gray-800 backdrop-blur-sm p-8 rounded-xl shadow-xl border border-gray-700">
+      <div className="backdrop-blur-sm p-8">
         {/* Contact Form */}
-        <form onSubmit={handleSubmit} className="mb-6">
+        <form onSubmit={handleSubmit} className="relative mb-6 max-w-[500px] mx-auto">
           <div className="mb-6">
             <label htmlFor="email" className="block text-gray-300 mb-2 font-medium">Email</label>
             <div className="relative">
@@ -75,7 +75,7 @@ function ContactSection() {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="px-8 py-3 cursor-pointer bg-gradient-to-r from-blue-500 to-purple-600 rounded-full font-bold text-white hover:shadow-lg hover:shadow-blue-500/30 transform transition-all duration-300 hover:-translate-y-1 focus:outline-none disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:transform-none"
+              className="absolute right-0 px-8 py-3 cursor-pointer bg-gradient-to-r from-blue-500 to-purple-600 rounded-full font-bold text-white hover:shadow-lg hover:shadow-blue-500/30 transform transition-all duration-300 hover:-translate-y-1 focus:outline-none disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:transform-none"
             >
               {isSubmitting ? (
                 <span className="flex items-center">
@@ -102,39 +102,15 @@ function ContactSection() {
         {/* Contact Information */}
         <div className="mt-8 pt-6 border-t border-gray-700">
           <div className="flex flex-col md:flex-row justify-between gap-4">
-            <div className="flex items-center space-x-3">
-              <div className="p-3 bg-blue-900 rounded-full">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-blue-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                </svg>
-              </div>
-              <div>
-                <p className="text-sm text-gray-400">Email</p>
-                <p className="text-gray-300">singhmilan314@gmail.com</p>
-              </div>
+
+            <div className="flex items-center space-x-1">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-blue-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
+              <p className="text-gray-300">singhmilan314@gmail.com</p>
             </div>
 
             <div className="flex items-center space-x-3">
-              <div className="p-3 bg-purple-900 rounded-full">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-purple-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                </svg>
-              </div>
-              <div>
-                <p className="text-sm text-gray-400">Location</p>
-                <p className="text-gray-300">Jammu, India</p>
-              </div>
-            </div>
-
-            <div className="flex items-center space-x-3">
-              <div className="p-3 bg-green-900 rounded-full">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-green-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
-                </svg>
-              </div>
-              <div>
-                <p className="text-sm text-gray-400">Social</p>
                 <div className="flex space-x-3 mt-1">
                   <a href="https://www.linkedin.com/in/milan-singh-51351b1bb/" className="text-gray-300 hover:text-blue-400">
                     <svg fill="white" width="25" height="25" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
@@ -147,6 +123,16 @@ function ContactSection() {
                     </svg>
                   </a>
                 </div>
+            </div>
+
+            <div className="flex items-center space-x-3">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-purple-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+              <div>
+                <p className="text-sm text-gray-400">Location</p>
+                <p className="text-gray-300">Jammu, India</p>
               </div>
             </div>
           </div>
