@@ -41,10 +41,7 @@ const Background = () => {
                     </div>
                 </div>
             </div>
-
-            <div className="container mx-auto px-4 md:px-8 lg:px-12 mb-12">
-                <SkillsSection />
-            </div>
+            <SkillsSection />
         </div>
     )
 }

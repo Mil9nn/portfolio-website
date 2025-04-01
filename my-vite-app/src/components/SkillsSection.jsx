@@ -38,7 +38,7 @@ function SkillsSection() {
         : skillCategories[activeCategory];
 
     return (
-        <div className="p-6">
+        <div className="p-6 px-17">
             <h3 className="text-2xl md:text-3xl font-bold mb-8 border-l-4 border-blue-500 pl-4 inline-block bg-gradient-to-r from-blue-600 to-blue-400 bg-clip-text text-transparent">Skills</h3>
             
             {/* Category tabs */}
