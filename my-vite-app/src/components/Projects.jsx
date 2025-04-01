@@ -25,7 +25,25 @@ function Projects() {
             "technologies": ["React", "Node.js", "MongoDB", "Express", "bcrypt.js", "Tailwind CSS"],
             "github": "https://github.com/Mil9nn/Password_Manager",
             "demo": ""
-        }        
+        },
+        {
+            "id": 3,
+            "name": "Spotify Clone",
+            "description": "A modern web-based music streaming application with a responsive interface. Features include album browsing, playlist management, audio controls, and a customizable theme with light/dark mode.",
+            "image": "/images/spotify-clone.png",
+            "technologies": ["JavaScript", "HTML5", "CSS3", "Custom Audio API", "Local Storage", "Responsive Design"],
+            "github": "https://github.com/Mil9nn/Spotify",
+            "demo": ""
+        },
+        {
+            "id": 4,
+            "name": "Resume Builder",
+            "description": "A React-based resume creation tool that allows users to input their personal information, education history, work experience, and skills. Features include a real-time preview of the formatted resume, editable sections, and a professional design suitable for printing.",
+            "image": "/images/resume-builder.png",
+            "technologies": ["React", "JavaScript", "CSS3", "Material UI", "Responsive Design", "State Management"],
+            "github": "https://github.com/Mil9nn/resume-project",
+            "demo": ""
+        }
     ];
 
     return (
