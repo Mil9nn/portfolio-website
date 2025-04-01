@@ -23,7 +23,7 @@ function Home() {
                             Full Stack Developer specializing in React and Node.js with a background in Mechanical Engineering. I combine technical precision with creative problem-solving to build efficient, user-friendly applications.
                         </p>
                         <p className="text-gray-300 leading-relaxed">
-                            When I'm not coding, I contribute to open-source projects and stay updated with the latest web technologies.
+                        When I'm not working on personal projects, I contribute to open-source projects and stay updated with the latest web technologies
                         </p>
                     </div>
                     {/* Lottie Animation */}

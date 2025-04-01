@@ -2,23 +2,55 @@ import React, { useState, useEffect } from 'react';
 import { Home, Briefcase, FolderKanban, MessageSquare, Download } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 
-const NavLink = ({ to, label, isActive, isScrolled, activeClass }) => (
-  <Link
-    to={to}
-    className={`relative px-2 py-1 transition-all duration-300 ${
-      isActive 
-        ? `text-${activeClass}-300 font-medium` 
-        : isScrolled 
-          ? 'text-white hover:text-' + activeClass + '-300' 
-          : 'text-gray-300 hover:text-' + activeClass + '-300'
-    }`}
-  >
-    {isActive && (
-      <span className={`absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-${activeClass}-300 to-${activeClass}-500 rounded-full`}></span>
-    )}
-    {label}
-  </Link>
-);
+const getActiveClasses = (activeClass, isActive, isScrolled) => {
+  // Map color names to their respective Tailwind classes
+  const colorMap = {
+    cyan: {
+      text: 'text-cyan-300',
+      hover: 'hover:text-cyan-300',
+      gradient: 'bg-gradient-to-r from-cyan-300 to-cyan-500'
+    },
+    pink: {
+      text: 'text-pink-300',
+      hover: 'hover:text-pink-300',
+      gradient: 'bg-gradient-to-r from-pink-300 to-pink-500'
+    },
+    purple: {
+      text: 'text-purple-300',
+      hover: 'hover:text-purple-300',
+      gradient: 'bg-gradient-to-r from-purple-300 to-purple-500'
+    },
+    green: {
+      text: 'text-green-300',
+      hover: 'hover:text-green-300',
+      gradient: 'bg-gradient-to-r from-green-300 to-green-500'
+    }
+  };
+
+  const colorClasses = colorMap[activeClass] || colorMap.cyan; // Default to cyan if not found
+
+  return {
+    text: isActive ? colorClasses.text : (isScrolled ? 'text-white' : 'text-gray-300'),
+    hover: colorClasses.hover,
+    gradient: colorClasses.gradient
+  };
+};
+
+const NavLink = ({ to, label, isActive, isScrolled, activeClass }) => {
+  const classes = getActiveClasses(activeClass, isActive, isScrolled);
+  
+  return (
+    <Link
+      to={to}
+      className={`relative px-2 py-1 transition-all duration-300 ${classes.text} ${!isActive ? classes.hover : ''} ${isActive ? 'font-medium' : ''}`}
+    >
+      {isActive && (
+        <span className={`absolute bottom-[-8px] left-[-5px] w-15 h-15 bg-[#8080804a] rounded-full`}></span>
+      )}
+      {label}
+    </Link>
+  );
+};
 
 function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -48,10 +80,10 @@ function Header() {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-6">
-            <NavLink to="/" label="Home" isActive={isActive('/')} isScrolled={isScrolled} activeClass="cyan" />
-            <NavLink to="/background" label="Experience" isActive={isActive('/background')} isScrolled={isScrolled} activeClass="pink" />
-            <NavLink to="/portfolio" label="Portfolio" isActive={isActive('/portfolio')} isScrolled={isScrolled} activeClass="purple" />
-            <NavLink to="/contact" label="Contact" isActive={isActive('/contact')} isScrolled={isScrolled} activeClass="green" />
+            <NavLink to="/" label="Home" isScrolled={isScrolled} activeClass="cyan" />
+            <NavLink to="/background" label="Experience" isScrolled={isScrolled} activeClass="pink" />
+            <NavLink to="/portfolio" label="Portfolio" isScrolled={isScrolled} activeClass="purple" />
+            <NavLink to="/contact" label="Contact" isScrolled={isScrolled} activeClass="green" />
 
             <button
               onClick={() => { alert("Resume is not available yet!") }}
