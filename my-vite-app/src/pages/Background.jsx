@@ -32,7 +32,7 @@ const Background = () => {
                     <h4 className="text-xl font-semibold mb-6 text-green-400">Experience</h4>
                     <div className="border-l-2 border-green-500 pl-6 py-2">
                         <h5 className="text-xl font-semibold mb-1 text-white">Web Development Intern</h5>
-                        <p className="text-green-400 mb-3">Prodigy Infotech • 15th March 2025 - Present</p>
+                        <p className="text-green-400 mb-3">Prodigy Infotech • March 2025 - April 2025</p>
                         <ul className="list-disc list-inside text-gray-300 space-y-2">
                             <li>Developing responsive web applications using React</li>
                             <li>Collaborating with team members on project deliverables</li>
