@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import Main from "./components/Main"
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom"
 import Home from './pages/Home'
 import Background from './pages/Background'
