@@ -35,3 +35,43 @@
 .animate-slide-right {
   animation: slideInFromRight 1s ease-out;
 }
+
+
+/* Hover Effect */
+  .card-hover {
+      position: relative;
+      overflow: hidden;
+      background: white;
+  }
+  
+  .card-hover::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      color: white;
+      background: linear-gradient(to bottom, #312e81, #581c87);
+      transform: translateY(-100%);
+      transition: transform 0.5s ease;
+      z-index: 0;
+      opacity: 0.8;
+  }
+  
+  .card-hover:hover::before {
+      transform: translateY(0);
+  }
+  
+  .card-hover:hover h3 {
+      color: white;
+  }
+  
+  .card-hover:hover p {
+      color: #e5e7eb;
+  }
+  
+  .card-hover:hover span {
+      background-color: rgba(67, 56, 202, 0.5);
+      color: #e0e7ff;
+  }

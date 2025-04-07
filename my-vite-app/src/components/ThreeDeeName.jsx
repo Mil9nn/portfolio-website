@@ -43,22 +43,21 @@ const NameContainer = styled.div`
 
 const Letter3D = styled.div`
   font-family: 'Arial Black', sans-serif;
-  font-size: clamp(1rem, 3vw, 1.5rem); // Much smaller base size
+  font-size: 1.5rem; // Fixed size
   font-weight: bold;
   color: hsl(var(--hue), 100%, 65%);
   transform: rotateY(0) translateZ(0);
-  animation: ${floatAnimation} 4s ease-in-out infinite; // Faster animation
+  animation: ${floatAnimation} 4s ease-in-out infinite;
   animation-delay: var(--delay);
   text-shadow: 
-    0 1px 3px hsla(var(--hue), 100%, 50%, 0.3), // Smaller shadow
+    0 1px 3px hsla(var(--hue), 100%, 50%, 0.3),
     0 0 5px hsla(var(--hue), 100%, 50%, 0.1);
   will-change: transform;
-  
+
   @media (prefers-reduced-motion) {
     animation: none;
   }
 
-  /* Individual letter colors */
   &.M { --hue: 0; }
   &.i { --hue: 60; }
   &.l { --hue: 120; }

@@ -18,12 +18,15 @@ function Home() {
                 <div className="flex flex-col md:flex-row items-center gap-8 p-8 overflow-hidden min-h-[70vh]">
                     {/* Background Section */}
                     <div className="flex-1 space-y-4">
-                        <h2 className="flex items-center gap-3 text-2xl font-bold text-white"><span>Hi, myself</span><ThreeDeeName /></h2>
+                        <h2 className="flex items-center gap-3 text-2xl font-bold text-white">
+                            <span>Hi, myself</span>
+                            <ThreeDeeName />
+                        </h2>
                         <p className="text-gray-300 leading-relaxed">
                             Full Stack Developer specializing in React and Node.js with a background in Mechanical Engineering. I combine technical precision with creative problem-solving to build efficient, user-friendly applications.
                         </p>
                         <p className="text-gray-300 leading-relaxed">
-                        When I'm not working on personal projects, I contribute to open-source projects and stay updated with the latest web technologies
+                            When I'm not working on personal projects, I contribute to open-source projects and stay updated with the latest web technologies
                         </p>
                     </div>
                     {/* Lottie Animation */}

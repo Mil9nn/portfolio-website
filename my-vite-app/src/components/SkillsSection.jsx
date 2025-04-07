@@ -94,11 +94,11 @@ function SkillCard({ icon, name, category }) {
     };
 
     return (
-        <div className={`flex flex-col items-center p-3 bg-gray-800/50 rounded-md border border-gray-700 transition-all duration-200 hover:scale-[1.03] ${cardThemes[category]}`}>
+        <div className={`flex items-center gap-1 p-2 bg-gray-800/50 rounded-md transition-all duration-200 hover:scale-[1.03] ${cardThemes[category]}`}>
             <img 
                 src={icon} 
                 alt={name} 
-                className="w-8 h-8 mb-2 object-contain" 
+                className="w-6 h-6 mb-2 object-contain" 
                 loading="lazy"
             />
             <span className="text-sm font-medium text-gray-200 text-center">{name}</span>
