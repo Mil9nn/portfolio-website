@@ -1,7 +1,7 @@
 import React from 'react';
 import { useAnimationOnScroll } from '../hooks/UseAnimateOnScroll';
 import SkillsSection from '../components/SkillsSection';
-import { GraduationCap, Briefcase } from 'lucide-react';
+import { GraduationCap, Building2 } from 'lucide-react';
 
 const Background = () => {
   const educationSection = useAnimationOnScroll({
@@ -36,7 +36,7 @@ const Background = () => {
       <section ref={experienceSection.ref} className="container mx-auto px-6 md:px-12 mb-16">
         <div className="border-l-4 border-green-500 pl-6">
           <div className="flex items-center gap-3 mb-4">
-            <Briefcase className="text-green-400 w-6 h-6" />
+            <Building2 className="text-green-400 w-6 h-6" />
             <h2 className="text-2xl font-bold text-green-400 tracking-wide">Experience</h2>
           </div>
           <div className="mb-3">

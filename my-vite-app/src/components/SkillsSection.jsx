@@ -5,23 +5,23 @@ function SkillsSection() {
 
     const skillCategories = {
         frontend: [
-            { icon: "/svgs/html.svg", name: "HTML5" },
-            { icon: "/svgs/css.svg", name: "CSS3" },
+            { icon: "/svgs/html.svg", name: "HTML" },
+            { icon: "/svgs/css.svg", name: "CSS" },
             { icon: "/svgs/javascript.svg", name: "JavaScript" },
             { icon: "/svgs/react.svg", name: "React" },
-            { icon: "/svgs/tailwind.svg", name: "Tailwind" },
-            { icon: "/svgs/bootstrap.svg", name: "Bootstrap" },
+            { icon: "/svgs/tailwind.svg", name: "TailwindCSS" },
+            { icon: "/svgs/typescript.svg", name: "TypeScript" },
+            { icon: "/svgs/clerk.svg", name: "Clerk" },
         ],
         backend: [
             { icon: "/svgs/nodejs.svg", name: "Node.js" },
             { icon: "/svgs/express.svg", name: "Express" },
-            { icon: "/mongodb.png", name: "MongoDB" },
-            { icon: "/restapi.png", name: "REST API" },
-            { icon: "/c.svg", name: "C" },
+            { icon: "/svgs/mongodb.svg", name: "MongoDB" },
+            { icon: "/api.png", name: "REST API" },
+            { icon: "/svgs/postman.svg", name: "POSTMAN" },
         ],
         tools: [
             { icon: "/svgs/git.svg", name: "Git" },
-            { icon: "/svgs/vscode.svg", name: "VS Code" },
             { icon: "/svgs/figma.svg", name: "Figma" },
         ]
     };
@@ -30,27 +30,26 @@ function SkillsSection() {
     const skillsToDisplay = activeCategory === 'all' ? allSkills : skillCategories[activeCategory];
 
     return (
-        <section className="py-16 px-4">
-            <div className="max-w-6xl mx-auto">
+        <section className="py-16 px-4 lg:px-12">
+            <div className="max-w-7xl mx-auto">
                 {/* Heading */}
-                <div className="text-center mb-10">
+                <div className="text-center mb-12">
                     <h2 className="text-3xl md:text-4xl font-bold text-white">
                         My <span className="bg-gradient-to-r from-blue-400 to-blue-600 text-transparent bg-clip-text">Skills</span>
                     </h2>
-                    <p className="text-gray-400 mt-2">Technologies I work with</p>
+                    <p className="text-gray-400 mt-3 text-sm md:text-base">Technologies I work with</p>
                 </div>
 
                 {/* Category Tabs */}
-                <div className="flex flex-wrap justify-center gap-3 mb-8">
+                <div className="flex flex-wrap justify-center gap-3 mb-10">
                     {['all', 'frontend', 'backend', 'tools'].map((category) => (
                         <button
                             key={category}
                             onClick={() => setActiveCategory(category)}
-                            className={`capitalize px-4 py-2 rounded-full text-sm font-medium transition shadow-sm ${
-                                activeCategory === category
+                            className={`capitalize px-4 py-2 rounded-full text-sm font-medium transition shadow-sm ${activeCategory === category
                                     ? getActiveButtonStyle(category)
                                     : 'bg-zinc-800 text-gray-300 hover:bg-zinc-700'
-                            }`}
+                                }`}
                         >
                             {category}
                         </button>
@@ -58,8 +57,8 @@ function SkillsSection() {
                 </div>
 
                 {/* Skills Grid */}
-                <div className="bg-zinc-800/30 p-3 sm:p-6 backdrop-blur-md shadow-md">
-                    <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+                <div className="p-3 sm:p-6 backdrop-blur-md">
+                    <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-4 lg:gap-6">
                         {skillsToDisplay.map((skill, index) => (
                             <SkillCard
                                 key={`skill-${index}`}
@@ -94,16 +93,14 @@ function SkillCard({ icon, name, category }) {
     };
 
     return (
-        <div
-            className={`flex flex-col items-center justify-center p-2 sm:p-4 rounded-lg bg-zinc-800/80 border border-transparent transition-all duration-200 hover:scale-[1.05] ${hoverStyles[category]}`}
-        >
+        <div className={`flex flex-row gap-1 sm:flex-col items-center justify-center py-2 sm:py-3 px-2 sm:p-4 rounded-full sm:rounded-xl bg-zinc-800/80 border border-transparent transition-all duration-200 hover:scale-[1.06] ${hoverStyles[category]}`}>
             <img
                 src={icon}
                 alt={name}
-                className="w-10 h-10 mb-2 object-contain"
+                className="size-4 sm:size-6 md:size-8 object-contain sm:mb-1"
                 loading="lazy"
             />
-            <span className="text-sm text-gray-200 font-medium text-center">{name}</span>
+            <span className="text-[10px] sm:text-sm md:text-base text-gray-200 font-medium text-center">{name}</span>
         </div>
     );
 }

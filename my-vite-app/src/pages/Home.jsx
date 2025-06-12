@@ -33,14 +33,14 @@ function Home() {
                     </p>
 
 
-                    <div className="flex items-center justify-between pt-4">
+                    <div className="relative flex items-center justify-center pt-4">
                         <Link
                             to="/portfolio"
-                            className="inline-block px-6 py-3 text-sm font-semibold text-white bg-purple-600 hover:bg-purple-700 transition rounded-full shadow-md shadow-purple-800/30"
+                            className="self-center inline-block px-6 py-3 text-sm font-semibold text-white bg-purple-600 hover:bg-purple-700 transition rounded-full shadow-md shadow-purple-800/30"
                         >
                             View Projects
                         </Link>
-                        <div className="flex items-center gap-3">
+                        <div className="absolute right-0 top-0 flex items-center gap-3">
                             <a target='_blank' href="https://github.com/Mil9nn"><FaGithub className="size-6" /></a>
                             <a target='_blank' href="https://www.linkedin.com/in/milan-singh-51351b1bb/"><FaLinkedin className="size-6" /></a>
                         </div>

@@ -12,6 +12,7 @@ import {
   Layers,
   MessageCircle,
   Mail,
+  Flashlight,
 } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 
@@ -27,6 +28,10 @@ const NavLink = ({ to, label, icon: Icon, isActive, showLabel }) => (
   </Link>
 );
 
+const handleTheme = async () => {
+  
+}
+
 function Header() {
   const location = useLocation();
   const isActive = (path) => location.pathname === path;
@@ -37,6 +42,7 @@ function Header() {
         <div className="flex items-center gap-2 text-2xl font-bold text-purple-400">
           <Code2 />
           Milan Singh
+          <Flashlight onClick={handleTheme} className="bg-zinc- border border-white p-1 rounded-full size-7" />
         </div>
 
         {/* Desktop Navigation */}
