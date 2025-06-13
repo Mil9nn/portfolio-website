@@ -1,7 +1,23 @@
 @import "tailwindcss";
 
+/************************************/
+/**********THEME CHANGE *************/
+/************************************/
+
+/* bg-gradient-to-br from-zinc-900 via-zinc-950 to-black */
+
 :root {
   --transition-speed: 300ms;
+  
+  --bg: linear-gradient(to bottom right, #18181b, #09090b, #000000);
+  --text: #f8fafc;
+  --accent: #60a5fa;
+}
+
+.light {
+  --bg: #fff;
+  --text: #111;
+  --accent: #2563eb;
 }
 
 /* Comprehensive Animation Keyframes */

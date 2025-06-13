@@ -40,7 +40,7 @@ function ContactSection() {
   return (
     <section id="contact" className="py-16 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
       <div className="text-center mb-12">
-        <h2 className="text-3xl sm:text-4xl font-bold text-white mb-3">
+        <h2 className="text-3xl sm:text-4xl font-bold mb-3">
           Get In <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-500">Touch</span>
         </h2>
         <p className="text-gray-400 max-w-lg mx-auto text-lg">
@@ -50,10 +50,10 @@ function ContactSection() {
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
         {/* Contact Form */}
-        <div className="bg-gray-900/50 backdrop-blur-sm p-8 rounded-xl border border-gray-800 shadow-lg">
+        <div className="backdrop-blur-sm p-8 rounded-xl border border-gray-500 shadow-lg">
           <form onSubmit={handleSubmit} className="space-y-6">
             <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">Email Address</label>
+              <label htmlFor="email" className="block text-sm font-medium mb-2">Email Address</label>
               <input
                 type="email"
                 id="email"
@@ -62,11 +62,11 @@ function ContactSection() {
                 onChange={handleChange}
                 required
                 placeholder="your.email@example.com"
-                className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:ring-2 focus:ring-purple-500 text-white placeholder-gray-500"
+                className="w-full px-4 py-3 border border-gray-700 rounded-lg focus:ring-2 focus:ring-purple-500 placeholder-gray-500"
               />
             </div>
             <div>
-              <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">Your Message</label>
+              <label htmlFor="message" className="block text-sm font-medium mb-2">Your Message</label>
               <textarea
                 id="message"
                 name="message"
@@ -75,7 +75,7 @@ function ContactSection() {
                 rows="5"
                 required
                 placeholder="Hello Milan, I'd like to talk about..."
-                className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:ring-2 focus:ring-purple-500 text-white placeholder-gray-500 resize-none"
+                className="w-full px-4 py-3 border border-gray-700 rounded-lg focus:ring-2 focus:ring-purple-500 placeholder-gray-500 resize-none"
               ></textarea>
             </div>
 
@@ -108,8 +108,8 @@ function ContactSection() {
 
         {/* Contact Info */}
         <div className="space-y-8">
-          <div className="bg-gray-900/50 backdrop-blur-sm p-8 rounded-xl border border-gray-800 shadow-lg">
-            <h3 className="text-xl font-semibold text-white mb-6">Contact Information</h3>
+          <div className="backdrop-blur-sm p-8 rounded-xl border border-gray-500 shadow-lg">
+            <h3 className="text-xl font-semibold mb-6">Contact Information</h3>
 
             <div className="space-y-6">
               <div className="flex items-start">
@@ -133,7 +133,7 @@ function ContactSection() {
                 </div>
                 <div className="ml-4">
                   <p className="text-sm font-medium text-gray-400">Location</p>
-                  <p className="text-gray-300">Jammu, India</p>
+                  <p className="text-gray-600">Jammu, India</p>
                 </div>
               </div>
 

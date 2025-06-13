@@ -13,36 +13,41 @@ import {
   MessageCircle,
   Mail,
   Flashlight,
+  FlashlightOff,
 } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
-
-const NavLink = ({ to, label, icon: Icon, isActive, showLabel }) => (
-  <Link
-    to={to}
-    className={`flex items-center ${showLabel ? 'gap-2 px-3 py-2' : 'p-2'
-      } rounded-md transition duration-300 ${isActive ? 'text-purple-400 font-semibold' : 'text-gray-300 hover:text-purple-300'
-      }`}
-  >
-    <Icon className="w-5 h-5" />
-    {showLabel && <span>{label}</span>}
-  </Link>
-);
-
-const handleTheme = async () => {
-  
-}
+import useThemeStore from '../store/themeStore';
 
 function Header() {
   const location = useLocation();
   const isActive = (path) => location.pathname === path;
 
+  const { lightMode, toggleTheme } = useThemeStore();
+
+  const NavLink = ({ to, label, icon: Icon, isActive, showLabel }) => (
+    <Link
+      to={to}
+      className={`flex items-center ${showLabel ? 'gap-2 px-3 py-2' : 'p-2'
+        } rounded-md transition duration-300 ${isActive ? 'text-purple-400 font-semibold' : lightMode ? 'text-gray-700 hover:text-purple-300' : 'text-gray-300'
+        }`}
+    >
+      <Icon className="w-5 h-5" />
+      {showLabel && <span>{label}</span>}
+    </Link>
+  );
+
+
   return (
-    <header className="bg-zinc-900 text-white shadow-md sticky top-0 z-20">
+    <header className={`shadow-md sticky top-0 z-20 ${!lightMode ? "bg-zinc-900" : "bg-gray-200"}`}>
       <div className="container mx-auto px-6 py-4 flex sm:flex-row flex-col gap-5 justify-between items-center">
         <div className="flex items-center gap-2 text-2xl font-bold text-purple-400">
           <Code2 />
           Milan Singh
-          <Flashlight onClick={handleTheme} className="bg-zinc- border border-white p-1 rounded-full size-7" />
+          {lightMode ? (
+            <FlashlightOff onClick={toggleTheme} className={`cursor-pointer bg-zinc- border ${lightMode ? "border-black/70" : "border-white/70"} p-1 rounded-full size-8.5`} />
+          ) : (
+            <Flashlight onClick={toggleTheme} className={`cursor-pointer bg-zinc- border ${lightMode ? "border-black/70" : "border-white/70"} p-1 rounded-full size-8.5`} />
+          )}
         </div>
 
         {/* Desktop Navigation */}

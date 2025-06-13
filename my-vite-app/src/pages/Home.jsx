@@ -5,6 +5,7 @@ import ThreeDeeName from '../components/ThreeDeeName';
 import { Link } from 'react-router-dom'
 
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
+import useThemeStore from '../store/themeStore';
 
 function Home() {
     const aboutSection = useAnimationOnScroll({
@@ -12,8 +13,10 @@ function Home() {
         threshold: 0.1
     });
 
+    const { lightMode } = useThemeStore();
+
     return (
-        <div className="min-h-[calc(100vh-72px)] bg-gradient-to-br from-zinc-900 via-zinc-950 to-black text-white flex items-center justify-center px-4 sm:px-6 lg:px-12">
+        <div className="min-h-[calc(100vh-72px)] flex items-center justify-center px-4 sm:px-6 lg:px-12">
             <div
                 ref={aboutSection.ref}
                 className="max-w-7xl w-full flex flex-col md:flex-row items-center justify-between gap-10 py-16 transition-all duration-1000"
@@ -24,11 +27,11 @@ function Home() {
                         Hi, I’m <ThreeDeeName />
                     </h2>
 
-                    <p className="text-zinc-300 text-base sm:text-lg leading-relaxed">
+                    <p className={`${lightMode ? "text-zinc-700" : "text-zinc-300"} text-base sm:text-lg leading-relaxed`}>
                         Full Stack Developer with a focus on <span className="text-purple-400 font-semibold">React</span> and <span className="text-blue-400 font-semibold">Node.js</span>, blending  logic with aesthetic UI/UX to craft seamless web experiences.
                     </p>
 
-                    <p className="text-zinc-400 text-sm sm:text-base">
+                    <p className={`${lightMode ? "text-zinc-600" : "text-zinc-400"} text-sm sm:text-base`}>
                         I build, break, and learn. Outside the screen, I’m always thinking design, performance, and purpose.
                     </p>
 
@@ -40,10 +43,11 @@ function Home() {
                         >
                             View Projects
                         </Link>
-                        <div className="absolute right-0 top-0 flex items-center gap-3">
-                            <a target='_blank' href="https://github.com/Mil9nn"><FaGithub className="size-6" /></a>
-                            <a target='_blank' href="https://www.linkedin.com/in/milan-singh-51351b1bb/"><FaLinkedin className="size-6" /></a>
+                        <div className="absolute -top-4 left-1/2 -translate-x-1/2 flex items-center gap-3">
+                            <a target="_blank" href="https://github.com/Mil9nn"><FaGithub className="size-6" /></a>
+                            <a target="_blank" href="https://www.linkedin.com/in/milan-singh-51351b1bb/"><FaLinkedin className="size-6" /></a>
                         </div>
+
                     </div>
                 </div>
 
