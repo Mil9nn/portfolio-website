@@ -20,6 +20,13 @@
   --accent: #2563eb;
 }
 
+.gradient-border {
+  @apply bg-clip-border border-2 border-transparent bg-gradient-to-br from-purple-400 via-fuchsia-500 to-pink-500;
+}
+.gradient-border-content {
+  @apply bg-black p-5;
+}
+
 /* Comprehensive Animation Keyframes */
 @keyframes slideInFromLeft {
   0% {
@@ -43,6 +50,20 @@
   }
 }
 
+@keyframes rotateIn {
+  0% {
+    transform: rotate(-180deg);
+  }
+  45% {
+    transform: rotate(-90deg);
+    opacity: 0.5;
+  }
+  100% {
+    transform: rotate(-45deg);
+    opacity: 1;
+  }
+}
+
 /* Utility Animation Classes */
 .animate-slide-left {
   animation: slideInFromLeft 1s ease-out;
@@ -50,6 +71,10 @@
 
 .animate-slide-right {
   animation: slideInFromRight 1s ease-out;
+}
+
+.animate-rotate {
+  animation: rotateIn 1s ease-out;
 }
 
 

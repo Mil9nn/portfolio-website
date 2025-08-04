@@ -16,7 +16,7 @@ const Background = () => {
 
   return (
     <div className="py-12">
-      <div className="flex flex-col sm:flex-row items-center justify-between">
+      <div className="flex flex-col sm:flex-row justify-between">
         {/* Education Section */}
         <section ref={educationSection.ref} className="container mx-auto px-6 md:px-12 mb-16">
           <div className="border-l-4 border-blue-500 pl-6">
