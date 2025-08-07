@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import useThemeStore from '../store/themeStore';
+import SkillDropItem from './animation/SkillDropItem';
 
 function SkillsSection() {
     const [activeCategory, setActiveCategory] = useState('all');
@@ -47,7 +48,7 @@ function SkillsSection() {
                         <button
                             key={category}
                             onClick={() => setActiveCategory(category)}
-                            className={`capitalize px-4 py-2 rounded-full text-sm font-medium transition shadow-sm shadow-blue-400/50 ${activeCategory === category
+                            className={`capitalize px-4 py-2 rounded-full text-sm font-medium transition shadow-sm shadow-white ${activeCategory === category
                                     ? getActiveButtonStyle(category)
                                     : ' text-gray-300 hover:bg-zinc-700'
                                 }`}
@@ -61,12 +62,14 @@ function SkillsSection() {
                 <div className="p-3 sm:p-6 backdrop-blur-md">
                     <div className="sm:grid flex flex-wrap px-3 md:px-0 grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-4 lg:gap-6">
                         {skillsToDisplay.map((skill, index) => (
-                            <SkillCard
+                            <SkillDropItem key={skill} delay={index * 0.2}>
+                                <SkillCard
                                 key={`skill-${index}`}
                                 icon={skill.icon}
                                 name={skill.name}
                                 category={activeCategory}
                             />
+                            </SkillDropItem>
                         ))}
                     </div>
                 </div>
@@ -96,7 +99,7 @@ function SkillCard({ icon, name, category }) {
     const { lightMode } = useThemeStore();
 
     return (
-        <div className={`flex flex-row gap-1 sm:flex-col items-center justify-center py-2 sm:py-3 px-2 sm:p-4 rounded-full sm:rounded-xl ${lightMode ? "bg-zinc-300" : "bg-zinc-800/80"} border border-transparent transition-all duration-200 hover:scale-[1.06] ${hoverStyles[category]}`}>
+        <div className={`flex flex-row gap-1 items-center justify-center py-2 sm:py-3 px-2 sm:p-4 rounded-full sm:rounded-xl ${lightMode ? "bg-zinc-300" : "bg-zinc-800/80"} border border-transparent transition-all duration-300 hover:scale-[1.06] ${hoverStyles[category]}`}>
             <img
                 src={icon}
                 alt={name}

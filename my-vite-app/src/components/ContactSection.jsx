@@ -50,7 +50,7 @@ function ContactSection() {
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
         {/* Contact Form */}
-        <div className="backdrop-blur-sm p-8 rounded-xl border border-gray-500 shadow-lg">
+        <div className="backdrop-blur-sm p-8 rounded-xl shadow-lg">
           <form onSubmit={handleSubmit} className="space-y-6">
             <div>
               <label htmlFor="email" className="block text-sm font-medium mb-2">Email Address</label>
@@ -83,7 +83,7 @@ function ContactSection() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full sm:w-auto px-6 py-3 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 rounded-full font-medium text-white transition-all duration-300 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-purple-500 disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center"
+                className="text-sm sm:w-auto px-4 py-3 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 rounded-full font-medium text-white transition-all duration-300 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-purple-500 disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center"
               >
                 {isSubmitting ? (
                   <>
@@ -107,11 +107,10 @@ function ContactSection() {
         </div>
 
         {/* Contact Info */}
-        <div className="space-y-8">
-          <div className="backdrop-blur-sm p-8 rounded-xl border border-gray-500 shadow-lg">
-            <h3 className="text-xl font-semibold mb-6">Contact Information</h3>
+        <div>
+          <div className="backdrop-blur-sm p-8">
 
-            <div className="space-y-6">
+            <div className="space-y-3">
               <div className="flex items-start">
                 <div className="mt-1 text-blue-400">
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -135,15 +134,6 @@ function ContactSection() {
                   <p className="text-sm font-medium text-gray-400">Location</p>
                   <p className="text-gray-600">Jammu, India</p>
                 </div>
-              </div>
-
-              <div className="flex gap-4">
-                <a href="https://www.linkedin.com/in/milan-singh-51351b1bb/" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300">
-                  <i className="fab fa-linkedin fa-lg"></i>
-                </a>
-                <a href="https://github.com/Mil9nn" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white">
-                  <i className="fab fa-github fa-lg"></i>
-                </a>
               </div>
             </div>
           </div>

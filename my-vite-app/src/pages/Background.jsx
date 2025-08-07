@@ -15,7 +15,7 @@ const Background = () => {
   });
 
   return (
-    <div className="py-12">
+    <section className="py-12">
       <div className="flex flex-col sm:flex-row justify-between">
         {/* Education Section */}
         <section ref={educationSection.ref} className="container mx-auto px-6 md:px-12 mb-16">
@@ -33,7 +33,7 @@ const Background = () => {
         </section>
 
         {/* Experience Section */}
-        <section ref={experienceSection.ref} className="container mx-auto px-6 md:px-12 mb-16">
+        <section ref={experienceSection.ref} className="container mx-auto px-6 md:px-12">
           <div className="border-l-4 border-green-500 pl-6">
             <div className="flex items-center gap-3 mb-4">
               <Building2 className="text-green-400 w-6 h-6" />
@@ -52,10 +52,8 @@ const Background = () => {
           </div>
         </section>
       </div>
-
-      {/* Skills */}
       <SkillsSection />
-    </div>
+    </section>
   );
 };
 

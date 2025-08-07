@@ -17,14 +17,8 @@ function App() {
 
   return (
     <Router>
-      <div style={{ backgroundImage: 'var(--bg)', color: 'var(--text)', }} className="min-h-screen transition-colors duration-300">
+      <div style={{ backgroundImage: 'var(--bg)', color: 'var(--text)', }}>
         <Header />
-        {/* <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/background" element={<Background />} />
-          <Route path="/portfolio" element={<Portfolio />} />
-          <Route path="/contact" element={<Contact />} />
-        </Routes> */}
         <Home />
         <Background />
         <Portfolio />

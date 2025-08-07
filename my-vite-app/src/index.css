@@ -24,7 +24,7 @@
   @apply bg-clip-border border-2 border-transparent bg-gradient-to-br from-purple-400 via-fuchsia-500 to-pink-500;
 }
 .gradient-border-content {
-  @apply bg-black p-5;
+  @apply p-5;
 }
 
 /* Comprehensive Animation Keyframes */
@@ -62,6 +62,57 @@
     transform: rotate(-45deg);
     opacity: 1;
   }
+}
+
+@keyframes waterLayerAnimation {
+  0% {
+    transform: skewY(20deg);
+    border-top-left-radius: 50% 40%;
+    border-top-right-radius: 50% 40%;
+  }
+  50% {
+    transform: skewY(-10deg);
+  }
+  100% {
+    transform: skewY(10deg);
+    border-top-left-radius: 100% 0%;
+    border-top-right-radius: 100% 0%
+  }
+}
+
+@keyframes Rotate3D {
+  0% {
+    transform: perspective(1000px) rotateY(0deg);
+  }
+  50% {
+    transform: perspective(1000px) rotateX(40deg);
+  }
+  100% {
+    transform: perspective(1000px) rotateY(50deg);
+  }
+}
+
+.pause-animation {
+  animation: none !important;
+}
+
+.animation-rotate-3d {
+  animation: Rotate3D 10s linear infinite;
+  animation-direction: alternate;
+  animation-play-state: running;
+}
+
+.group:hover .animation-rotate-3d {
+  animation-play-state: paused;
+}
+
+.water-fill {
+  animation: waterLayerAnimation 1s ease-in-out forwards;
+  animation-play-state: paused;
+}
+
+.group:hover .water-fill {
+  animation-play-state: running;
 }
 
 /* Utility Animation Classes */
