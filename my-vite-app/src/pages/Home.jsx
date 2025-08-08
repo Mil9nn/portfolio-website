@@ -1,8 +1,6 @@
-import React from 'react';
 import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 import { useAnimationOnScroll } from '../hooks/UseAnimateOnScroll';
 import ThreeDeeName from '../components/ThreeDeeName';
-import { Link } from 'react-router-dom'
 
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import useThemeStore from '../store/themeStore';
@@ -16,25 +14,24 @@ function Home() {
     const { lightMode } = useThemeStore();
 
     return (
-        <div className="md:h-[calc(100vh-72px)] mb-10">
-            <div className="flex items-center justify-center px-4 sm:px-6 lg:px-12">
-                <div
-                    ref={aboutSection.ref}
-                    className="max-w-7xl w-full flex flex-col md:flex-row items-center justify-between gap-10 py-16 transition-all duration-1000"
+        <div id="home" className="min-h-screen w-full bg-blue-500 px-4 sm:px-6 lg:px-8">
+            <div className="flex items-center justify-center">
+                <div ref={aboutSection.ref}
+                    className="flex flex-col md:flex-row sm:px-10 items-center justify-between gap-10 py-16 transition-all duration-1000"
                 >
-                    {/* Left: Intro Text */}
-                    <div style={{transform: "perspective(1000px) rotateY(35deg)"}} className="group shadow-lg relative flex-1 space-y-6  rounded-lg">
+                    {/* Introduction */}
+                    <div style={{ transform: "perspective(1000px) rotateY(35deg)" }} className="group shadow-lg relative flex-1 space-y-6  rounded-lg">
 
                         <div className="animation-rotate-3d gradient-border-content">
                             <h2 className="text-4xl sm:text-5xl font-extrabold tracking-tight leading-tight text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-fuchsia-500 to-pink-500">
                                 Hi, I’m <ThreeDeeName />
                             </h2>
 
-                            <p className={`${lightMode ? "text-zinc-700" : "text-zinc-300"} text-base sm:text-lg leading-relaxed`}>
+                            <p className={`${lightMode ? "text-zinc-700" : "text-white"} text-base sm:text-lg leading-relaxed`}>
                                 Full Stack Developer with a focus on <span className="text-purple-400 font-semibold">React</span> and <span className="text-blue-400 font-semibold">Node.js</span>, blending  logic with aesthetic UI/UX to craft seamless web experiences.
                             </p>
 
-                            <p className={`${lightMode ? "text-zinc-600" : "text-zinc-400"} text-sm sm:text-base`}>
+                            <p className={`${lightMode ? "text-zinc-600" : "text-blue-50"} text-sm sm:text-base`}>
                                 I build, break, and learn. Outside the screen, I’m always thinking design, performance, and purpose.
                             </p>
 
@@ -45,7 +42,7 @@ function Home() {
                         </div>
                     </div>
 
-                    {/* Right: Lottie */}
+                    {/* Lottie Gif */}
                     <div className="flex-1 flex justify-center items-center">
                         <DotLottieReact
                             src="https://lottie.host/2add6f21-9e90-4e0a-ad82-59da626bbd6c/zWWC5qEO2d.lottie"
@@ -61,14 +58,14 @@ function Home() {
                     </div>
                 </div>
             </div>
-            <div className="flex items-center justify-center">
-                <Link
-                    to="/portfolio"
+            <div className="flex items-center justify-center pb-8">
+                <button
+                    onClick={() => document.getElementById('portfolio')?.scrollIntoView({ behavior: 'smooth' })}
                     className="relative group overflow-hidden self-center inline-block px-6 py-3 text-sm font-semibold text-white bg-purple-600 hover:bg-purple-700 transition rounded-full shadow-md shadow-purple-800/30"
                 >
-                    <span className='absolute inset-0 bg-blue-500 translate-y-full group-hover:translate-y-0 transition-transform duration-1000 ease-in-out z-0' ></span>
+                    <span className='absolute inset-0 bg-blue-500 translate-y-full group-hover:translate-y-0 transition-transform duration-1000 ease-in-out z-0'></span>
                     <span className='relative z-10'>View Projects</span>
-                </Link>
+                </button>
             </div>
         </div>
     );

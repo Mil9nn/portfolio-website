@@ -3,7 +3,7 @@ import Projects from '../components/Projects';
 
 const Portfolio = () => {
   return (
-    <div className="">
+    <div>
       <Projects />
     </div>
   )

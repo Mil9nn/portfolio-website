@@ -1,4 +1,3 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 import Home from './pages/Home'
 import Background from './pages/Background'
 import Portfolio from './pages/Portfolio'
@@ -16,15 +15,13 @@ function App() {
   }, [lightMode])
 
   return (
-    <Router>
       <div style={{ backgroundImage: 'var(--bg)', color: 'var(--text)', }}>
         <Header />
         <Home />
         <Background />
-        <Portfolio />
-        <Contact />
+        {/* <Portfolio /> */}
+        {/* <Contact /> */}
       </div>
-    </Router>
   );
 }
 

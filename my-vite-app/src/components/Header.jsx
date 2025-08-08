@@ -1,40 +1,60 @@
-import React from 'react';
+import { useEffect, useState } from 'react';
 import {
   Home,
-  Briefcase,
-  FolderKanban,
-  MessageSquare,
   Download,
   GraduationCap,
-  Package,
-  Terminal,
   Code2,
   Layers,
-  MessageCircle,
   Mail,
   Flashlight,
   FlashlightOff,
 } from 'lucide-react';
-import { Link, useLocation } from 'react-router-dom';
 import useThemeStore from '../store/themeStore';
 
 function Header() {
-  const location = useLocation();
-  const isActive = (path) => location.pathname === path;
-
+  
+  const [activeSection, setactiveSection] = useState('home');
   const { lightMode, toggleTheme } = useThemeStore();
 
-  const NavLink = ({ to, label, icon: Icon, isActive, showLabel }) => (
-    <Link
-      to={to}
-      className={`flex items-center ${showLabel ? 'gap-2 px-3 py-2' : 'p-2'
-        } rounded-md transition duration-300 ${isActive ? 'text-purple-400 font-semibold' : lightMode ? 'text-gray-700 hover:text-purple-300' : 'text-gray-300'
-        }`}
-    >
-      <Icon className="w-5 h-5" />
-      {showLabel && <span>{label}</span>}
-    </Link>
-  );
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = ['home', 'background', 'portfolio', 'contact'];
+      const scrollPosition = window.scrollY // Offset for header height
+
+      for (const section of sections) {
+        const element = document.getElementById(section);
+        if (element) {
+          const { offsetTop, offsetHeight } = element;
+          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+            setactiveSection(section);
+            break;
+          }
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Check initial position
+
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const isActive = (sectionId) => activeSection === sectionId; 
+
+  const NavLink = ({ sectionId, label, icon: Icon = Icon, isActive, showLabel }) => {
+   const handleClick = () => {
+    if (sectionId) {
+      document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
+    }
+   }
+
+    return <button onClick={handleClick} className={`flex items-center ${showLabel ? 'gap-2 px-3 py-2' : 'p-2'
+    } rounded-md transition duration-300 ${isActive ? 'text-purple-400 font-semibold' : lightMode ? 'text-gray-700 hover:text-purple-300' : 'text-gray-300'
+    }`}>
+    <Icon size={20} />
+    {showLabel && <span>{label}</span>}
+  </button>
+};
 
 
   return (
@@ -52,10 +72,10 @@ function Header() {
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-6">
-          <NavLink to="/" label="Home" icon={Home} isActive={isActive('/')} showLabel />
-          <NavLink to="/background" label="Experience" icon={GraduationCap} isActive={isActive('/background')} showLabel />
-          <NavLink to="/portfolio" label="Portfolio" icon={Layers} isActive={isActive('/portfolio')} showLabel />
-          <NavLink to="/contact" label="Contact" icon={Mail} isActive={isActive('/contact')} showLabel />
+          <NavLink sectionId="home" label="Home" icon={Home} isActive={isActive('home')} showLabel />
+          <NavLink sectionId="background" label="Experience" icon={GraduationCap} isActive={isActive('background')} showLabel />
+          <NavLink sectionId="portfolio" label="Portfolio" icon={Layers} isActive={isActive('portfolio')} showLabel />
+          <NavLink sectionId="contact" label="Contact" icon={Mail} isActive={isActive('contact')} showLabel />
 
           <button
             onClick={() => alert('Resume is not available yet!')}
@@ -67,10 +87,10 @@ function Header() {
 
         {/* Mobile Navigation (icons only) */}
         <nav className="md:hidden flex items-center gap-4">
-          <NavLink to="/" icon={Home} isActive={isActive('/')} />
-          <NavLink to="/background" icon={GraduationCap} isActive={isActive('/background')} />
-          <NavLink to="/portfolio" icon={Layers} isActive={isActive('/portfolio')} />
-          <NavLink to="/contact" icon={Mail} isActive={isActive('/contact')} />
+          <NavLink sectionId="/" icon={Home} isActive={isActive('home')} />
+          <NavLink sectionId="/background" icon={GraduationCap} isActive={isActive('background')} />
+          <NavLink sectionId="/portfolio" icon={Layers} isActive={isActive('portfolio')} />
+          <NavLink sectionId="/contact" icon={Mail} isActive={isActive('contact')} />
           <button
             onClick={() => alert('Resume is not available yet!')}
             className="p-2 rounded-full bg-purple-600 hover:bg-purple-700 transition"

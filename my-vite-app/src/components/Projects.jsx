@@ -60,7 +60,7 @@ function Projects() {
     const { lightMode } = useThemeStore();
 
     return (
-        <div ref={projectSection.ref} className="py-16 px-4 sm:px-8 lg:px-16">
+        <div id="portfolio" ref={projectSection.ref} className="py-16 px-4 sm:px-8 lg:px-16">
             <h2 className="text-3xl sm:text-4xl font-bold mb-12 text-center text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-blue-500">
                 My Projects
             </h2>
@@ -70,7 +70,7 @@ function Projects() {
                     <div key={project.id} className="group perspective w-full max-w-[320px] mx-auto">
                         <div className="relative w-full h-72 transition-transform duration-700 transform-style-preserve-3d group-hover:rotate-y-180">
                             {/* Front */}
-                            <div className={`absolute w-[320px] h-[250px] backface-hidden ${lightMode ? "bg-zinc-200 border-zinc-300" : "bg-zinc-800 border-zinc-700"} rounded-md shadow-lg border flex flex-col justify-center items-center text-center`}>
+                            <div className={`absolute w-full h-[250px] backface-hidden ${lightMode ? "bg-zinc-200 border-zinc-300" : "bg-zinc-800 border-zinc-700"} rounded-md shadow-lg border flex flex-col justify-center items-center text-center`}>
                                 {project.image ? (
                                     <img src={project.image} alt={project.name} className="h-35 w-full object-cover mb-3" />
                                 ) : (

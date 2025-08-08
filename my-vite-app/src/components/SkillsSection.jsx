@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import useThemeStore from '../store/themeStore';
 import SkillDropItem from './animation/SkillDropItem';
+import { motion } from 'motion/react';
 
 function SkillsSection() {
     const [activeCategory, setActiveCategory] = useState('all');
@@ -20,7 +21,7 @@ function SkillsSection() {
             { icon: "/svgs/express.svg", name: "Express" },
             { icon: "/svgs/mongodb.svg", name: "MongoDB" },
             { icon: "/api.png", name: "REST API" },
-            { icon: "/svgs/postman.svg", name: "POSTMAN" },
+            { icon: "/svgs/postman.svg", name: "Postman" },
         ],
         tools: [
             { icon: "/svgs/git.svg", name: "Git" },
@@ -32,15 +33,21 @@ function SkillsSection() {
     const skillsToDisplay = activeCategory === 'all' ? allSkills : skillCategories[activeCategory];
 
     return (
-        <section className="py-16 px-4 lg:px-12">
+        <section id="skills" className="py-16 px-4 lg:px-12 bg-purple-500">
             <div className="max-w-7xl mx-auto">
                 {/* Heading */}
-                <div className="text-center mb-12">
+                <motion.div initial={{ x: 200, opacity: 0, rotateY: 180 }}
+                    whileInView={{ x: 0, opacity: 1, rotateY: 0 }}
+                    viewport={{ once: false, amount: 0.1 }}
+                    transition={{
+                        duration: 1,
+                    }}
+                 className="text-center mb-12">
                     <h2 className="text-3xl md:text-4xl font-bold">
                         My <span className="bg-gradient-to-r from-blue-400 to-blue-600 text-transparent bg-clip-text">Skills</span>
                     </h2>
                     <p className="text-gray-400 mt-3 text-sm md:text-base">Technologies I work with</p>
-                </div>
+                </motion.div>
 
                 {/* Category Tabs */}
                 <div className="flex flex-wrap justify-center gap-3 mb-10">
@@ -106,7 +113,7 @@ function SkillCard({ icon, name, category }) {
                 className="size-4 sm:size-6 md:size-8 object-contain sm:mb-1"
                 loading="lazy"
             />
-            <span className={`text-[10px] sm:text-sm md:text-base ${lightMode ? "text-[#252222]" : "text-gray-200"} font-medium text-center`}>{name}</span>
+            <span className={`sm:text-sm md:text-base ${lightMode ? "text-[#252222]" : "text-gray-200"} font-medium text-center whitespace-nowrap`}>{name}</span>
         </div>
     );
 }
