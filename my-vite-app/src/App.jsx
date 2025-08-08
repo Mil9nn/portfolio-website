@@ -19,8 +19,8 @@ function App() {
         <Header />
         <Home />
         <Background />
-        {/* <Portfolio /> */}
-        {/* <Contact /> */}
+        <Portfolio />
+        <Contact />
       </div>
   );
 }

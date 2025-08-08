@@ -19,7 +19,7 @@ function Header() {
   useEffect(() => {
     const handleScroll = () => {
       const sections = ['home', 'background', 'portfolio', 'contact'];
-      const scrollPosition = window.scrollY // Offset for header height
+      const scrollPosition = window.scrollY + 100;
 
       for (const section of sections) {
         const element = document.getElementById(section);
@@ -88,9 +88,9 @@ function Header() {
         {/* Mobile Navigation (icons only) */}
         <nav className="md:hidden flex items-center gap-4">
           <NavLink sectionId="/" icon={Home} isActive={isActive('home')} />
-          <NavLink sectionId="/background" icon={GraduationCap} isActive={isActive('background')} />
-          <NavLink sectionId="/portfolio" icon={Layers} isActive={isActive('portfolio')} />
-          <NavLink sectionId="/contact" icon={Mail} isActive={isActive('contact')} />
+          <NavLink sectionId="background" icon={GraduationCap} isActive={isActive('background')} />
+          <NavLink sectionId="portfolio" icon={Layers} isActive={isActive('portfolio')} />
+          <NavLink sectionId="contact" icon={Mail} isActive={isActive('contact')} />
           <button
             onClick={() => alert('Resume is not available yet!')}
             className="p-2 rounded-full bg-purple-600 hover:bg-purple-700 transition"

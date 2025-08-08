@@ -33,16 +33,19 @@ function SkillsSection() {
     const skillsToDisplay = activeCategory === 'all' ? allSkills : skillCategories[activeCategory];
 
     return (
-        <section id="skills" className="py-16 px-4 lg:px-12 bg-purple-500">
-            <div className="max-w-7xl mx-auto">
+        <section id="skills" className="py-16 px-4 lg:px-12 overflow-x-hidden">
+            <div className="mx-auto">
                 {/* Heading */}
-                <motion.div initial={{ x: 200, opacity: 0, rotateY: 180 }}
+                <motion.div
+                    className="relative text-center mb-12"
+                    style={{ willChange: 'transform' }} 
+                    initial={{ x: 200, opacity: 0, rotateY: 180 }}
                     whileInView={{ x: 0, opacity: 1, rotateY: 0 }}
                     viewport={{ once: false, amount: 0.1 }}
                     transition={{
                         duration: 1,
                     }}
-                 className="text-center mb-12">
+                 >
                     <h2 className="text-3xl md:text-4xl font-bold">
                         My <span className="bg-gradient-to-r from-blue-400 to-blue-600 text-transparent bg-clip-text">Skills</span>
                     </h2>
@@ -67,7 +70,7 @@ function SkillsSection() {
 
                 {/* Skills Grid */}
                 <div className="p-3 sm:p-6 backdrop-blur-md">
-                    <div className="sm:grid flex flex-wrap px-3 md:px-0 grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-4 lg:gap-6">
+                    <div className="flex flex-wrap px-3 md:px-0 gap-4 lg:gap-6">
                         {skillsToDisplay.map((skill, index) => (
                             <SkillDropItem key={skill} delay={index * 0.2}>
                                 <SkillCard

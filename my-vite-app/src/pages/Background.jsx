@@ -1,25 +1,15 @@
 import React from 'react';
-import { useAnimationOnScroll } from '../hooks/UseAnimateOnScroll';
 import SkillsSection from '../components/SkillsSection';
 import { GraduationCap, Building2 } from 'lucide-react';
 
 const Background = () => {
-  const educationSection = useAnimationOnScroll({
-    animationClass: 'animate-slide-right',
-    threshold: 0.1
-  });
-
-  const experienceSection = useAnimationOnScroll({
-    animationClass: 'animate-slide-left',
-    threshold: 0.1
-  });
 
   return (
     <section id="background">
       <SkillsSection />
       <div className="flex flex-col sm:flex-row justify-between p-5">
         {/* Education Section */}
-        <section ref={educationSection.ref} className="container mx-auto px-6 md:px-12 mb-16">
+        <section className="mx-auto px-6 md:px-12 mb-16">
           <div className="border-l-4 border-blue-500 pl-6">
             <div className="flex items-center gap-3 mb-4">
               <GraduationCap className="text-blue-400 w-6 h-6" />
@@ -34,7 +24,7 @@ const Background = () => {
         </section>
 
         {/* Experience Section */}
-        <section ref={experienceSection.ref} className="container mx-auto px-6 md:px-12">
+        <section className="mx-auto px-6 md:px-12">
           <div className="border-l-4 border-green-500 pl-6">
             <div className="flex items-center gap-3 mb-4">
               <Building2 className="text-green-400 w-6 h-6" />

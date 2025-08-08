@@ -14,13 +14,13 @@ function Home() {
     const { lightMode } = useThemeStore();
 
     return (
-        <div id="home" className="min-h-screen w-full bg-blue-500 px-4 sm:px-6 lg:px-8">
+        <div id="home" className="min-h-screen w-full px-4 sm:px-6 lg:px-8">
             <div className="flex items-center justify-center">
                 <div ref={aboutSection.ref}
                     className="flex flex-col md:flex-row sm:px-10 items-center justify-between gap-10 py-16 transition-all duration-1000"
                 >
                     {/* Introduction */}
-                    <div style={{ transform: "perspective(1000px) rotateY(35deg)" }} className="group shadow-lg relative flex-1 space-y-6  rounded-lg">
+                    <div className="group shadow-lg relative flex-1 space-y-6  rounded-lg">
 
                         <div className="animation-rotate-3d gradient-border-content">
                             <h2 className="text-4xl sm:text-5xl font-extrabold tracking-tight leading-tight text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-fuchsia-500 to-pink-500">
