@@ -1,6 +1,6 @@
 import { useAnimationOnScroll } from "../hooks/UseAnimateOnScroll";
 import useThemeStore from "../store/themeStore";
-import { FaExternalLinkAlt, FaGithub } from 'react-icons/fa';
+import { FaExternalLinkAlt, FaGithub } from "react-icons/fa";
 import { motion } from "framer-motion";
 import { useState } from "react";
 
@@ -26,7 +26,6 @@ function Projects() {
         "MongoDB",
         "Clerk",
         "Cloudinary",
-        "Tailwind CSS",
       ],
       github: "https://github.com/Mil9nn/spotify-clone",
       demo: "https://spotify-clone-r71v.onrender.com",
@@ -49,35 +48,26 @@ function Projects() {
     },
     {
       id: 3,
-      name: "Password Manager",
+      name: "Medical Appointment Booking System",
       description:
-        "Secure password vault to manage credentials using bcrypt and MongoDB.",
+        "A full-stack appointment platform where patients can book, cancel, or reschedule medical visits with admin approval and analytics dashboard.",
       technologies: [
         "React",
-        "MongoDB",
-        "Express",
-        "Node.js",
-        "Tailwind CSS",
+        "React Hook Form",
+        "Zod",
+        "Open AI",
       ],
-      github: "https://github.com/Mil9nn/Password_Manager",
+      github: "https://github.com/Mil9nn/easycare",
+      demo: "https://easycare-c6rt.onrender.com"
     },
     {
       id: 4,
-      name: "Quick Kart",
+      name: "Table Tennis Scorer",
       description:
-        "React e-commerce app with product browsing, cart, and filter using Context API and Fake Store API.",
-      technologies: ["React", "Context API", "Tailwind CSS", "API"],
-      github: "https://github.com/Mil9nn/resume-project",
-      demo: "https://shopping-cart031.netlify.app/",
-    },
-    {
-      id: 5,
-      name: "Take Notes",
-      description:
-        "A simple note taking application where users can create, edit or delete notes, mark the tasks as completed, and more.",
-      technologies: ["React"],
-      github: "https://github.com/Mil9nn/The-Keeper-App",
-      demo: "https://keeper786.netlify.app/",
+        "A responsive web app for tracking live table tennis matches with scoring, server control, and match history.",
+      technologies: ["Next.js", "MongoDB", "Zustand", "TypeScript"],
+      github: "https://github.com/Mil9nn/table-tennis",
+      demo: "https://table-tennis-ten.vercel.app/"
     },
   ];
 
@@ -118,7 +108,8 @@ function Projects() {
                 duration: 1,
               }}
               style={{
-                background: "radial-gradient(circle at center, #a855f7 0%, #7e22ce 100%)",
+                background:
+                  "radial-gradient(circle at center, #a855f7 0%, #7e22ce 100%)",
               }}
             />
 

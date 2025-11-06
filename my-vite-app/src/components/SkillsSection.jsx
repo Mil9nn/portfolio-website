@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import useThemeStore from '../store/themeStore';
 import SkillDropItem from './animation/SkillDropItem';
-import { motion } from 'motion/react';
+import { motion } from 'framer-motion';
 
 function SkillsSection() {
     const [activeCategory, setActiveCategory] = useState('all');
@@ -33,7 +33,7 @@ function SkillsSection() {
     const skillsToDisplay = activeCategory === 'all' ? allSkills : skillCategories[activeCategory];
 
     return (
-        <section id="skills" className="py-16 px-4 lg:px-12 overflow-x-hidden">
+        <section id="skills" className="min-h-[calc(100vh-70px)] py-16 px-4 lg:px-12 overflow-x-hidden">
             <div className="mx-auto">
                 {/* Heading */}
                 <motion.div

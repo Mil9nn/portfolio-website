@@ -1,74 +1,94 @@
-import { DotLottieReact } from '@lottiefiles/dotlottie-react';
-import { useAnimationOnScroll } from '../hooks/UseAnimateOnScroll';
-import ThreeDeeName from '../components/ThreeDeeName';
-
-import { FaGithub, FaLinkedin } from 'react-icons/fa';
-import useThemeStore from '../store/themeStore';
+import { DotLottieReact } from "@lottiefiles/dotlottie-react";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
+import useThemeStore from "../store/themeStore";
+import { Sparkles, ArrowRight } from "lucide-react";
+import ThreeDeeName from "../components/ThreeDeeName";
 
 function Home() {
-    const aboutSection = useAnimationOnScroll({
-        animationClass: 'animate-slide-left',
-        threshold: 0.1
-    });
+  const { lightMode } = useThemeStore();
 
-    const { lightMode } = useThemeStore();
+  return (
+    <section
+      id="home"
+      className="min-h-[calc(100vh-70px)] flex items-center justify-center px-6 sm:px-8 py-24"
+    >
+      <div className="w-full grid lg:grid-cols-2 gap-16 items-center">
+        {/* Left */}
+        <div className="space-y-8"
+        >
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-500/10 border border-purple-400/20">
+            <Sparkles className="size-4 text-purple-400 animate-pulse" />
+            <span className="text-sm font-medium text-purple-400">
+              Open to opportunities
+            </span>
+          </div>
+          <p
+            className={`text-lg sm:text-xl leading-relaxed ${
+              lightMode ? "text-zinc-700" : "text-gray-300"
+            }`}
+          >
+            Full Stack Developer building
+            <span className="text-purple-400 font-semibold"> reliable</span> &
+            <span className="text-blue-400 font-semibold"> high performance</span> web
+            systems with <span className="text-purple-400">Node.js</span> and{" "}
+            <span className="text-green-400">modern frameworks</span>.
+          </p>
 
-    return (
-        <div id="home" className="min-h-screen w-full px-4 sm:px-6 lg:px-8">
-            <div className="flex items-center justify-center">
-                <div ref={aboutSection.ref}
-                    className="flex flex-col md:flex-row sm:px-10 items-center justify-between gap-10 py-16 transition-all duration-1000"
+          <div className="flex flex-wrap items-center gap-5 pt-4">
+            <a
+              href="#portfolio"
+              className="group px-8 py-4 bg-gradient-to-r from-purple-600 to-blue-600 text-white font-semibold rounded-full flex items-center gap-2 shadow-md hover:scale-105 transition-all duration-300"
+            >
+              View Projects
+              <ArrowRight className="size-5 group-hover:translate-x-1 transition-transform" />
+            </a>
+
+            <div className="flex items-center gap-4">
+              {[
+                {
+                  icon: FaGithub,
+                  href: "https://github.com/Mil9nn",
+                  label: "GitHub",
+                },
+                {
+                  icon: FaLinkedin,
+                  href: "https://www.linkedin.com/in/milan-singh-51351b1bb/",
+                  label: "LinkedIn",
+                },
+              ].map((s, i) => (
+                <a
+                  key={i}
+                  href={s.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{ scale: 1.1 }}
+                  className={`p-3 rounded-full border transition ${
+                    lightMode
+                      ? "bg-white border-gray-200 hover:border-purple-400 text-gray-700 hover:text-purple-600"
+                      : "bg-white/5 border-white/10 hover:border-purple-400 text-gray-300 hover:text-purple-400"
+                  }`}
+                  aria-label={s.label}
                 >
-                    {/* Introduction */}
-                    <div className="group shadow-lg relative flex-1 space-y-6  rounded-lg">
-
-                        <div className="animation-rotate-3d gradient-border-content">
-                            <h2 className="text-4xl sm:text-5xl font-extrabold tracking-tight leading-tight text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-fuchsia-500 to-pink-500">
-                                Hi, I’m <ThreeDeeName />
-                            </h2>
-
-                            <p className={`${lightMode ? "text-zinc-700" : "text-white"} text-base sm:text-lg leading-relaxed`}>
-                                Full Stack Developer with a focus on <span className="text-purple-400 font-semibold">React</span> and <span className="text-blue-400 font-semibold">Node.js</span>, blending  logic with aesthetic UI/UX to craft seamless web experiences.
-                            </p>
-
-                            <p className={`${lightMode ? "text-zinc-600" : "text-blue-50"} text-sm sm:text-base`}>
-                                I build, break, and learn. Outside the screen, I’m always thinking design, performance, and purpose.
-                            </p>
-
-                            <div className="hover:animate-rotate absolute -bottom-5 left-1/2 -translate-x-1/2 flex items-center gap-3 z-50 p-2 rounded-full shadow-lg">
-                                <a target="_blank" href="https://github.com/Mil9nn"><FaGithub className="size-6" /></a>
-                                <a target="_blank" href="https://www.linkedin.com/in/milan-singh-51351b1bb/"><FaLinkedin className="size-6" /></a>
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* Lottie Gif */}
-                    <div className="flex-1 flex justify-center items-center">
-                        <DotLottieReact
-                            src="https://lottie.host/2add6f21-9e90-4e0a-ad82-59da626bbd6c/zWWC5qEO2d.lottie"
-                            loop
-                            autoplay
-                            style={{
-                                width: "100%",
-                                maxWidth: "600px",
-                                height: "auto",
-                                filter: "drop-shadow(0 0 20px #a855f7aa)"
-                            }}
-                        />
-                    </div>
-                </div>
+                  <s.icon className="size-5" />
+                </a>
+              ))}
             </div>
-            <div className="flex items-center justify-center pb-8">
-                <button
-                    onClick={() => document.getElementById('portfolio')?.scrollIntoView({ behavior: 'smooth' })}
-                    className="relative group overflow-hidden self-center inline-block px-6 py-3 text-sm font-semibold text-white bg-purple-600 hover:bg-purple-700 transition rounded-full shadow-md shadow-purple-800/30"
-                >
-                    <span className='absolute inset-0 bg-blue-500 translate-y-full group-hover:translate-y-0 transition-transform duration-1000 ease-in-out z-0'></span>
-                    <span className='relative z-10'>View Projects</span>
-                </button>
-            </div>
+          </div>
         </div>
-    );
+
+        {/* Right Animation */}
+        <div className="flex justify-center"
+        >
+          <DotLottieReact
+            src="https://lottie.host/2add6f21-9e90-4e0a-ad82-59da626bbd6c/zWWC5qEO2d.lottie"
+            loop
+            autoplay
+            className="w-full max-w-[500px] drop-shadow-2xl"
+          />
+        </div>
+      </div>
+    </section>
+  );
 }
 
 export default Home;
