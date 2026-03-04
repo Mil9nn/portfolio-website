@@ -1,8 +1,10 @@
 import { useAnimationOnScroll } from "../hooks/UseAnimateOnScroll";
 import useThemeStore from "../store/themeStore";
-import { FaExternalLinkAlt, FaGithub } from "react-icons/fa";
 import { motion } from "framer-motion";
 import { useState } from "react";
+import projects from "../data/projects";
+import ProjectModal from "./ProjectModal";
+import FeaturedProject from "./FeaturedProject";
 
 function Projects() {
   const projectSection = useAnimationOnScroll({
@@ -12,155 +14,63 @@ function Projects() {
 
   const { lightMode } = useThemeStore();
   const [hovered, setHovered] = useState(null);
+  const [selectedProject, setSelectedProject] = useState(null);
+  const [selectedTechs, setSelectedTechs] = useState(new Set());
 
-  const projects = [
-    {
-      id: 1,
-      name: "Spotify Clone",
-      description:
-        "A full-stack Spotify-inspired music streaming platform with Clerk auth, audio playback, admin dashboard, and Cloudinary integration.",
-      technologies: [
-        "React",
-        "Node.js",
-        "Express",
-        "MongoDB",
-        "Clerk",
-        "Cloudinary",
-      ],
-      github: "https://github.com/Mil9nn/spotify-clone",
-      demo: "https://spotify-clone-r71v.onrender.com",
-    },
-    {
-      id: 2,
-      name: "Real-Time Chat App",
-      description:
-        "A real-time messaging web app using Socket.IO with authentication, profile upload, themes, and status indicators.",
-      technologies: [
-        "React",
-        "Node.js",
-        "Socket.IO",
-        "Express",
-        "MongoDB",
-        "Tailwind CSS",
-      ],
-      github: "https://github.com/Mil9nn/chat-app",
-      demo: "https://chat-app-e1y3.onrender.com",
-    },
-    {
-      id: 3,
-      name: "Medical Appointment Booking System",
-      description:
-        "A full-stack appointment platform where patients can book, cancel, or reschedule medical visits with admin approval and analytics dashboard.",
-      technologies: [
-        "React",
-        "React Hook Form",
-        "Zod",
-        "Open AI",
-      ],
-      github: "https://github.com/Mil9nn/easycare",
-      demo: "https://easycare-c6rt.onrender.com"
-    },
-    {
-      id: 4,
-      name: "Table Tennis Scorer",
-      description:
-        "A responsive web app for tracking live table tennis matches with scoring, server control, and match history.",
-      technologies: ["Next.js", "MongoDB", "Zustand", "TypeScript"],
-      github: "https://github.com/Mil9nn/table-tennis",
-      demo: "https://table-tennis-ten.vercel.app/"
-    },
-  ];
+  const allTechs = Array.from(new Set(projects.flatMap((p) => p.technologies))).sort();
+
+  function toggleTech(tech) {
+    setSelectedTechs((prev) => {
+      const next = new Set(prev);
+      if (next.has(tech)) next.delete(tech);
+      else next.add(tech);
+      return next;
+    });
+  }
+
+  function getTechIcon(tech) {
+    const map = {
+      React: '/svgs/react.svg',
+      'Next.js': 'https://th.bing.com/th/id/ODF.MzoL3O4svOEyO-tUNCEcNA?w=32&h=32&qlt=90&pcl=fffffc&o=6&pid=1.2',
+      'Node.js': '/svgs/nodejs.svg',
+      MongoDB: '/svgs/mongodb.svg',
+      TypeScript: '/svgs/typescript.svg',
+      Zustand: 'https://th.bing.com/th/id/OIP.4ej-1rHTfJ5ji7_5XscrWgHaDt?w=200&h=200&c=10&o=6&dpr=1.3&pid=genserp&rm=2',
+      Docker: 'https://www.vectorlogo.zone/logos/docker/docker-icon.svg',
+      Vercel: 'https://upload.wikimedia.org/wikipedia/commons/0/0e/Vercel-logo.svg',
+      GitHub: '/svgs/github.svg',
+      Postman: '/svgs/postman.svg',
+    };
+    return map[tech] || null;
+  }
+
+  const filteredProjects = projects.filter(
+    (p) => selectedTechs.size === 0 || p.technologies.some((t) => selectedTechs.has(t))
+  );
+  const featuredId = projects && projects[0] ? projects[0].id : null;
+  const filteredProjectsExceptFeatured = filteredProjects.filter((p) => p.id !== featuredId);
 
   return (
-    <div
-      id="portfolio"
-      ref={projectSection.ref}
-      className="py-16 px-4 sm:px-8 lg:px-16"
-    >
-      <h2 className="text-3xl sm:text-4xl font-bold mb-12 text-center text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-blue-500">
-        My Projects
-      </h2>
+    <div className="">
+      <div
+        id="portfolio"
+        ref={projectSection.ref}
+        className="py-16 px-4 sm:px-8 lg:px-16"
+      >
+        <h2 className="text-3xl sm:text-4xl font-bold mb-12 text-center text-brand-gradient">
+          My Projects
+        </h2>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-        {projects.map((project) => (
-          <motion.div
-            key={project.id}
-            onHoverStart={() => setHovered(project.id)}
-            onHoverEnd={() => setHovered(null)}
-            className={`relative p-5 rounded-lg shadow-lg border overflow-hidden flex flex-col justify-between transition-transform duration-500 ${
-              lightMode
-                ? "bg-zinc-200 border-zinc-300"
-                : "bg-zinc-800 border-zinc-700"
-            }`}
-            whileHover={{ scale: 1.05 }}
-          >
-            {/* Animated Paint Splash Background */}
-            <motion.div
-              className="absolute inset-0 z-0"
-              initial={{ clipPath: "circle(0% at 50% 50%)" }}
-              animate={{
-                clipPath:
-                  hovered === project.id
-                    ? "circle(150% at 50% 50%)"
-                    : "circle(0% at 50% 50%)",
-              }}
-              transition={{
-                duration: 1,
-              }}
-              style={{
-                background:
-                  "radial-gradient(circle at center, #a855f7 0%, #7e22ce 100%)",
-              }}
-            />
+        <FeaturedProject project={projects[0]} onOpen={setSelectedProject} />
 
-            <div className="relative z-10">
-              <h3
-                className={`text-lg font-semibold mb-2 ${
-                  lightMode ? "text-black" : "text-white"
-                }`}
-              >
-                {project.name}
-              </h3>
-              <p
-                className={`text-sm mb-4 ${
-                  lightMode ? "text-gray-800" : "text-gray-300"
-                }`}
-              >
-                {project.description}
-              </p>
-              <div className="flex flex-wrap gap-1 mb-4">
-                {project.technologies.map((tech, idx) => (
-                  <span
-                    key={idx}
-                    className="text-[11px] px-2 py-0.5 bg-purple-700/70 text-white rounded-full"
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
-            </div>
-
-            <div className="relative z-10 flex items-center gap-3">
-              <a
-                href={project.github}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <FaGithub className="size-6" />
-              </a>
-              {project.demo && (
-                <a
-                  href={project.demo}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <FaExternalLinkAlt className="size-5 text-blue-600" />
-                </a>
-              )}
-            </div>
-          </motion.div>
-        ))}
+        <FeaturedProject project={projects[1]} onOpen={setSelectedProject} />
       </div>
+
+      {selectedProject && (
+        <div className="fixed inset-0 z-50 w-full h-full bg-blue-500">
+          <ProjectModal project={selectedProject} onClose={() => setSelectedProject(null)} />
+        </div>
+      )}
     </div>
   );
 }

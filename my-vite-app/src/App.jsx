@@ -15,7 +15,7 @@ function App() {
   }, [lightMode])
 
   return (
-      <div style={{ backgroundImage: 'var(--bg)', color: 'var(--text)', }}>
+      <div style={{ background: 'var(--bg)', color: 'var(--text)' }}>
         <Header />
         <Home />
         <Background />

@@ -10,16 +10,75 @@
 :root {
   --transition-speed: 300ms;
   
-  --bg: linear-gradient(to bottom right, #18181b, #09090b, #000000);
+  --bg: linear-gradient(to bottom right, #8ecae6, #6fb7da, #4fa3cd);
   --text: #f8fafc;
   --accent: #60a5fa;
+  --theme-cyan: #8ECAE6;
+  --muted: #dbeff6; /* subtitles */
+  --muted-2: #eaf7fb; /* headings */
+  --border-cyan: rgb(142, 202, 230);
+  --border-cyan-70: rgba(142,202,230,0.7);
+  --bg-surface-cyan: rgba(142,202,230,0.06);
+
+  /* Neutral / surface tokens */
+  --surface-light: rgba(255,255,255,0.7);
+  --surface-light-70: rgba(255,255,255,0.85);
+  --surface-dark: rgba(17,24,39,0.6);
+  --surface-dark-60: rgba(17,24,39,0.45);
+  --neutral-muted: #d1d5db; /* muted text in light/dark mix */
+  --neutral-muted-inverse: #6b7280; /* alternate muted */
+  --border-muted: rgba(15,23,25,0.06);
 }
 
 .light {
   --bg: #fff;
   --text: #111;
   --accent: #2563eb;
+
+  /* Light-mode overrides for neutrals */
+  --surface-light: rgba(255,255,255,1);
+  --surface-light-70: rgba(255,255,255,0.9);
+  --surface-dark: rgba(243,244,246,1);
+  --neutral-muted: #6b7280;
+  --border-muted: rgba(2,6,23,0.06);
 }
+
+/* Theme utility classes (use these in components for centralized colors) */
+.bg-theme { background: var(--bg) !important; }
+.text-theme { color: var(--text) !important; }
+.text-theme-muted { color: var(--muted-2) !important; }
+.text-theme-subtle { color: var(--muted) !important; }
+.border-theme { border-color: var(--border-cyan) !important; }
+.border-theme-strong { border-color: var(--border-cyan-70) !important; }
+.bg-theme-surface { background-color: var(--bg-surface-cyan) !important; }
+.bg-theme-overlay { background-color: rgba(142,202,230,0.12) !important; }
+
+/* Neutral utility classes */
+.bg-surface-light { background: var(--surface-light) !important; }
+.bg-surface-light-70 { background: var(--surface-light-70) !important; }
+.bg-surface-dark { background: var(--surface-dark) !important; }
+.bg-surface-dark-60 { background: var(--surface-dark-60) !important; }
+.text-neutral { color: var(--neutral-muted) !important; }
+.text-neutral-inverse { color: var(--neutral-muted-inverse) !important; }
+.border-surface { border-color: var(--border-muted) !important; }
+.hover-bg-theme-overlay:hover { background-color: rgba(142,202,230,0.12) !important; }
+
+/* Brand colors and gradients */
+:root {
+  --brand-purple: #7c3aed; /* purple-600 */
+  --brand-purple-700: #6d28d9; /* purple-700 */
+  --brand-blue: #2563eb; /* blue-600 */
+  --brand-blue-500: #3b82f6; /* blue-500 */
+  --brand-blue-400: #60a5fa; /* blue-400 */
+}
+
+.bg-brand-gradient { background-image: linear-gradient(90deg, var(--brand-purple), var(--brand-blue)) !important; }
+.bg-brand-gradient-strong { background-image: linear-gradient(90deg, var(--brand-purple-700), var(--brand-blue-500)) !important; }
+.hover-bg-brand-gradient-strong:hover { background-image: linear-gradient(90deg, var(--brand-purple-700), var(--brand-blue-500)) !important; }
+.text-brand-gradient { background-image: linear-gradient(90deg, var(--brand-blue-400), var(--brand-blue)); -webkit-background-clip: text; background-clip: text; color: transparent !important; }
+.text-brand-blue { color: var(--brand-blue) !important; }
+.text-brand-blue-strong { color: var(--brand-blue-500) !important; }
+.hover-text-brand-blue:hover { color: var(--brand-blue-500) !important; }
 
 .gradient-border {
   @apply bg-clip-border border-2 border-transparent bg-gradient-to-br from-purple-400 via-fuchsia-500 to-pink-500;

@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
+import { Phone } from 'lucide-react';
 import emailjs from '@emailjs/browser';
+import useThemeStore from '../store/themeStore';
 
 function ContactSection() {
   const [formData, setFormData] = useState({ email: '', message: '' });
@@ -37,13 +39,15 @@ function ContactSection() {
       });
   };
 
+  const { lightMode } = useThemeStore();
+
   return (
     <section id="contact" className="py-16 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
       <div className="text-center mb-12">
         <h2 className="text-3xl sm:text-4xl font-bold mb-3">
-          Get In <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-500">Touch</span>
+          Get In <span className="text-brand-gradient">Touch</span>
         </h2>
-        <p className="text-gray-400 max-w-lg mx-auto text-lg">
+        <p className={`max-w-lg mx-auto text-lg ${lightMode ? 'text-neutral' : 'text-theme'}`}>
           Have a project in mind or want to collaborate? Drop me a message!
         </p>
       </div>
@@ -53,7 +57,7 @@ function ContactSection() {
         <div className="backdrop-blur-sm p-8 rounded-xl shadow-lg">
           <form onSubmit={handleSubmit} className="space-y-6">
             <div>
-              <label htmlFor="email" className="block text-sm font-medium mb-2">Email Address</label>
+              <label htmlFor="email" className={`block text-sm font-medium mb-2 ${lightMode ? 'text-gray-700' : 'text-gray-200'}`}>Email Address</label>
               <input
                 type="email"
                 id="email"
@@ -62,11 +66,11 @@ function ContactSection() {
                 onChange={handleChange}
                 required
                 placeholder="your.email@example.com"
-                className="w-full px-4 py-3 border border-gray-700 rounded-lg focus:ring-2 focus:ring-purple-500 placeholder-gray-500"
+                className={`w-full px-4 py-3 border border-theme rounded-lg focus:ring-2 focus:ring-purple-500 resize-none ${lightMode ? 'bg-white text-gray-900 placeholder-gray-500' : 'bg-gray-800 text-gray-100 placeholder-gray-400'}`}
               />
             </div>
             <div>
-              <label htmlFor="message" className="block text-sm font-medium mb-2">Your Message</label>
+              <label htmlFor="message" className={`block text-sm font-medium mb-2 ${lightMode ? 'text-gray-700' : 'text-gray-200'}`}>Your Message</label>
               <textarea
                 id="message"
                 name="message"
@@ -75,7 +79,7 @@ function ContactSection() {
                 rows="5"
                 required
                 placeholder="Hello Milan, I'd like to talk about..."
-                className="w-full px-4 py-3 border border-gray-700 rounded-lg focus:ring-2 focus:ring-purple-500 placeholder-gray-500 resize-none"
+                className={`w-full px-4 py-3 border border-theme rounded-lg focus:ring-2 focus:ring-purple-500 resize-none ${lightMode ? 'bg-white text-gray-900 placeholder-gray-500' : 'bg-gray-800 text-gray-100 placeholder-gray-400'}`}
               ></textarea>
             </div>
 
@@ -83,7 +87,7 @@ function ContactSection() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="text-sm sm:w-auto px-4 py-3 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 rounded-full font-medium text-white transition-all duration-300 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-purple-500 disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center"
+                className="text-sm sm:w-auto px-4 py-3 bg-brand-gradient hover-bg-brand-gradient-strong rounded-full font-medium text-white transition-all duration-300 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-purple-500 disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center"
               >
                 {isSubmitting ? (
                   <>
@@ -108,18 +112,27 @@ function ContactSection() {
 
         {/* Contact Info */}
         <div>
-          <div className="backdrop-blur-sm p-8">
+          <div className="backdrop-blur-sm p-8 rounded-xl">
 
             <div className="space-y-3">
               <div className="flex items-start">
-                <div className="mt-1 text-blue-400">
+                <div className="mt-1 text-brand-blue">
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                   </svg>
                 </div>
                 <div className="ml-4">
-                  <p className="text-sm font-medium text-gray-400">Email</p>
-                  <a href="mailto:singhmilan314@gmail.com" className="text-blue-400 hover:underline">singhmilan314@gmail.com</a>
+                  <p className={`text-sm font-medium ${lightMode ? 'text-gray-700' : 'text-gray-200'}`}>Email</p>
+                  <a href="mailto:singhmilan314@gmail.com" className="text-brand-blue hover:underline">singhmilan314@gmail.com</a>
+                  <div className="mt-2">
+                    <div className="flex items-center gap-3">
+                      <Phone className="h-5 w-5 text-brand-blue" />
+                      <div>
+                        <p className={`text-sm font-medium ${lightMode ? 'text-gray-700' : 'text-gray-200'}`}>Phone</p>
+                        <a href="tel:+918899277840" className="text-brand-blue hover:underline">8899277840</a>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
 
@@ -131,8 +144,8 @@ function ContactSection() {
                   </svg>
                 </div>
                 <div className="ml-4">
-                  <p className="text-sm font-medium text-gray-400">Location</p>
-                  <p className="text-gray-600">Jammu, India</p>
+                  <p className={`text-sm font-medium ${lightMode ? 'text-gray-700' : 'text-gray-200'}`}>Location</p>
+                  <p className={lightMode ? 'text-gray-600' : 'text-gray-300'}>Jammu, India</p>
                 </div>
               </div>
             </div>
