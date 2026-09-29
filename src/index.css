@@ -24,6 +24,7 @@
   --border: var(--color-line);
   --accent: var(--color-accent);
   --accent-soft: var(--color-accent-soft);
+  --name-mark-stroke: color-mix(in oklab, var(--text) 46%, transparent);
   --nav-bg: rgb(243 245 248 / 0.82);
   --hero-glow: rgb(15 118 110 / 0.14);
   --overlay: rgb(11 18 32 / 0.55);
@@ -40,6 +41,7 @@
   --border: #243042;
   --accent: #2dd4bf;
   --accent-soft: rgb(45 212 191 / 0.14);
+  --name-mark-stroke: color-mix(in oklab, var(--text) 18%, transparent);
   --nav-bg: rgb(10 14 20 / 0.84);
   --hero-glow: rgb(45 212 191 / 0.1);
   --overlay: rgb(0 0 0 / 0.65);
@@ -213,7 +215,7 @@
     letter-spacing: -0.06em;
     line-height: 0.85;
     color: transparent;
-    -webkit-text-stroke: 1px color-mix(in oklab, var(--text) 18%, transparent);
+    -webkit-text-stroke: 1px var(--name-mark-stroke);
     user-select: none;
     pointer-events: none;
   }

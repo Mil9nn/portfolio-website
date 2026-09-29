@@ -57,19 +57,19 @@ function Hero() {
             href="https://github.com/Mil9nn"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex size-11 items-center justify-center rounded-md border border-line bg-surface text-ink transition-colors duration-200 hover:border-accent hover:text-accent"
+            className="inline-flex size-11 items-center justify-center rounded-full border border-[#181717] bg-[#181717] text-white transition-all duration-200 hover:scale-110 hover:border-accent hover:text-accent"
             aria-label="GitHub"
           >
-            <Github size={18} aria-hidden="true" />
+            <Github size={18} className="text-white" aria-hidden="true" />
           </a>
           <a
             href="https://www.linkedin.com/in/milan-singh-51351b1bb/"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex size-11 items-center justify-center rounded-md border border-line bg-surface text-ink transition-colors duration-200 hover:border-accent hover:text-accent"
+            className="inline-flex size-11 items-center justify-center rounded-md border border-[#0A66C2] bg-[#0A66C2] text-white transition-all duration-200 hover:scale-110 hover:border-accent hover:text-accent"
             aria-label="LinkedIn"
           >
-            <Linkedin size={18} aria-hidden="true" />
+            <Linkedin size={18} className="text-white" aria-hidden="true" />
           </a>
           <span className="ml-2 text-sm text-muted">Open to full-time roles</span>
         </div>

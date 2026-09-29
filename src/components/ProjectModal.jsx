@@ -83,13 +83,6 @@ export default function ProjectModal({ project, onClose }) {
           </div>
         </div>
 
-        {project.codeSnippet && (
-          <div className="mt-4">
-            <h4 className="font-semibold">Key Snippet</h4>
-            <pre className="bg-surface-dark-60 text-theme-muted p-3 rounded text-xs overflow-auto mt-2">{project.codeSnippet}</pre>
-          </div>
-        )}
-
         {project.metrics && (
           <>
             <h4 className="font-semibold mt-4">Impact / Metrics</h4>

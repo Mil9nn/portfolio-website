@@ -149,20 +149,6 @@ function ProjectModal({ project, onClose }) {
             </div>
           )}
 
-          {project.codeSnippet && (
-            <div className="mt-8">
-              <h4 className="text-sm font-bold uppercase tracking-[0.14em] text-ink">
-                Key Snippet
-              </h4>
-              <pre
-                className="mt-3 overflow-x-auto rounded-xl p-4 text-xs leading-relaxed"
-                style={{ background: 'var(--code-bg)', color: 'var(--code-text)' }}
-                translate="no"
-              >
-                <code>{project.codeSnippet}</code>
-              </pre>
-            </div>
-          )}
         </div>
 
         <div className="flex flex-wrap gap-3 border-t border-line px-5 py-4 sm:px-6">
@@ -284,7 +270,7 @@ function Work() {
                         href={project.github}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex size-11 items-center justify-center rounded-md border border-line bg-surface text-ink transition-colors duration-200 hover:text-accent"
+                        className="inline-flex size-11 items-center justify-center rounded-full border border-line bg-surface text-ink transition-colors duration-200 hover:text-accent"
                         aria-label={`${project.name} on GitHub`}
                       >
                         <Github size={18} aria-hidden="true" />

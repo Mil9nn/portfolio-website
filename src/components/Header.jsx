@@ -57,10 +57,13 @@ function Header() {
       <div className="container-page flex h-16 items-center justify-between gap-4">
         <a
           href="#home"
-          className="font-display text-lg font-bold tracking-tight text-ink"
+          className="inline-flex items-center justify-center"
           translate="no"
+          aria-label="Milan Singh"
         >
-          Milan Singh
+          <span className="name-mark text-[clamp(1.8rem,2vw,2.6rem)] leading-none tracking-[-0.06em]">
+            MS
+          </span>
         </a>
 
         <nav className="hidden items-center gap-0.5 md:flex" aria-label="Primary">

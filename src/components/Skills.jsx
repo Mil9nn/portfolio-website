@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { motion as Motion, useReducedMotion } from 'framer-motion';
 
 const categories = {
   all: 'All',
@@ -42,6 +43,7 @@ const skills = {
 
 function Skills() {
   const [active, setActive] = useState('all');
+  const shouldReduceMotion = useReducedMotion();
   const list =
     active === 'all'
       ? [...skills.frontend, ...skills.backend, ...skills.tools]
@@ -87,9 +89,38 @@ function Skills() {
           </div>
         </div>
 
-        <ul className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
+        <Motion.ul
+          key={active}
+          role="tabpanel"
+          aria-label={`${categories[active]} skills`}
+          initial="hidden"
+          animate="visible"
+          variants={{
+            hidden: {},
+            visible: {
+              transition: shouldReduceMotion
+                ? {}
+                : { delayChildren: 0.03, staggerChildren: 0.045 },
+            },
+          }}
+          className="mt-10 grid min-h-[46rem] grid-cols-2 content-start gap-3 sm:min-h-[29rem] sm:grid-cols-3 md:min-h-[24.75rem] md:grid-cols-4 lg:min-h-[20.5rem] lg:grid-cols-5"
+        >
           {list.map((skill) => (
-            <li key={skill.name} translate="no">
+            <Motion.li
+              key={skill.name}
+              translate="no"
+              variants={{
+                hidden: shouldReduceMotion
+                  ? { opacity: 1 }
+                  : { opacity: 0, y: -12, scale: 0.96 },
+                visible: {
+                  opacity: 1,
+                  y: 0,
+                  scale: 1,
+                  transition: { duration: shouldReduceMotion ? 0 : 0.28 },
+                },
+              }}
+            >
               <div className="group flex min-h-14 items-center gap-3 rounded-md border border-line bg-surface px-3.5 py-3 transition-colors duration-200 hover:border-accent hover:bg-accent-soft">
                 {skill.icon ? (
                   <img
@@ -115,9 +146,9 @@ function Skills() {
                   {skill.name}
                 </span>
               </div>
-            </li>
+            </Motion.li>
           ))}
-        </ul>
+        </Motion.ul>
       </div>
     </section>
   );
