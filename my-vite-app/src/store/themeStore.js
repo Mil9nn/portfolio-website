@@ -1,9 +1,15 @@
 import { create } from 'zustand';
 
+document.documentElement.classList.add('dark');
+
 const useThemeStore = create((set) => ({
-  lightMode: false,
-  setLightMode: (value) => set({ lightMode: value }),
-  toggleTheme: () => set((state) => ({ lightMode: !state.lightMode })),
+  darkMode: true,
+  toggleTheme: () =>
+    set((state) => {
+      const next = !state.darkMode;
+      document.documentElement.classList.toggle('dark', next);
+      return { darkMode: next };
+    }),
 }));
 
 export default useThemeStore;

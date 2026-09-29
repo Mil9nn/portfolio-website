@@ -1,27 +1,30 @@
-import Home from './pages/Home'
-import Background from './pages/Background'
-import Portfolio from './pages/Portfolio'
-import Contact from './pages/Contact'
-import Header from './components/Header'
-import { useEffect } from "react"
-import useThemeStore from "./store/themeStore"
+import Header from './components/Header';
+import Hero from './components/Hero';
+import Work from './components/Work';
+import About from './components/About';
+import Skills from './components/Skills';
+import Contact from './components/Contact';
+import Footer from './components/Footer';
 
 function App() {
-
-  const { lightMode } = useThemeStore();
-
-  useEffect(() => {
-    document.documentElement.classList.toggle("light", lightMode);
-  }, [lightMode])
-
   return (
-      <div style={{ background: 'var(--bg)', color: 'var(--text)' }}>
-        <Header />
-        <Home />
-        <Background />
-        <Portfolio />
+    <div className="bg-page text-ink">
+      <a
+        href="#work"
+        className="absolute left-4 top-4 z-50 -translate-y-16 rounded-md bg-accent px-4 py-2 text-sm font-semibold text-white transition-transform duration-200 focus:translate-y-0"
+      >
+        Skip to work
+      </a>
+      <Header />
+      <main>
+        <Hero />
+        <Work />
+        <About />
+        <Skills />
         <Contact />
-      </div>
+      </main>
+      <Footer />
+    </div>
   );
 }
 

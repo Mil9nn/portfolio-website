@@ -4,6 +4,81 @@ const placeholder = (w = 1200, h = 700, text = 'Project+Image') =>
 const projects = [
   {
     id: 1,
+    name: "Medyx",
+    subtitle:
+      "OPD EMR for Indian clinics — live token queue, consultations, prescriptions, billing, and a patient portal.",
+    description:
+      "Small Indian OPDs still run on paper tokens, WhatsApp, and scattered Excel sheets — which means lost records, queue chaos, and slow billing. Medyx is an all-in-one clinic EMR: reception runs a realtime walk-in token queue, doctors work from a consultation workspace with notes, labs, and prescriptions, and billing generates itemized or flat-fee PDF receipts. Patients can book online, join a patient portal for upcoming visits and past prescriptions, and clinics stay isolated with role-based staff access (admin, doctor, receptionist). Built as a production Next.js app on Supabase Auth + PostgreSQL via Prisma, deployed on Vercel.",
+    technologies: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Prisma",
+      "PostgreSQL",
+      "Supabase",
+      "Supabase Auth",
+      "Tailwind CSS",
+      "Zod",
+      "React PDF",
+      "Vitest",
+      "Playwright",
+    ],
+    role: "Full-Stack Developer & Product Builder",
+    responsibilities: [
+      "Shipped a full OPD workflow: walk-in token queue, patient MRNs, consultations, prescriptions, billing, and clinic settings",
+      "Built realtime queue sync so reception and doctor desks share the same live token board without refresh",
+      "Implemented role-based access for admin, doctor, and receptionist with clinic-scoped data isolation",
+      "Designed online appointment booking plus a patient portal for visits, queue status, and prescription history",
+      "Generated prescription and billing PDFs with @react-pdf/renderer for print-ready clinic receipts",
+      "Modeled the domain in Prisma on PostgreSQL (Supabase) with migrations, seed data, and Vitest + Playwright coverage",
+    ],
+    architectureImage: placeholder(1000, 400, 'Medyx+Architecture'),
+    challenges: [
+      "Keeping walk-in token state consistent across concurrent reception desks without stale queue boards",
+      "Enforcing clinic-level data isolation so staff only see their own patients, visits, and billing",
+      "Designing one consultation workspace that covers notes, labs, and prescriptions without slowing busy OPDs",
+      "Producing reliable PDF prescriptions and receipts that clinics can print immediately",
+      "Balancing public clinic listing + online booking with authenticated staff workflows in the same Next.js app",
+    ],
+    codeSnippet: `// Clinic-scoped patient portal booking flow (simplified)
+export async function bookAppointment(input: BookingInput) {
+  const clinic = await prisma.clinic.findFirst({
+    where: { slug: input.clinicSlug, isListed: true },
+  });
+  if (!clinic) throw new Error("Clinic not available for booking");
+
+  return prisma.appointment.create({
+    data: {
+      clinicId: clinic.id,
+      patientId: input.patientId,
+      doctorId: input.doctorId,
+      scheduledAt: input.slot,
+      status: "BOOKED",
+      source: "ONLINE",
+    },
+  });
+}`,
+    metrics: [
+      "Live at medyx-bay.vercel.app",
+      "Core OPD modules: queue, records, consultations, prescriptions, billing, patient portal",
+      "3 staff roles with permission-scoped clinic workflows",
+      "Supabase Auth + Prisma/PostgreSQL multi-clinic data model",
+      "PDF prescription & billing receipts for print workflows",
+    ],
+    github: "https://github.com/Mil9nn/Medyx",
+    demo: "https://medyx-bay.vercel.app",
+    onlineScreenshots: [
+      "/projects/medyx/queue.png",
+      "/projects/medyx/records.png",
+    ],
+    images: [
+      "/projects/medyx/queue.png",
+      "/projects/medyx/records.png",
+      "/projects/medyx/prescriptions.png",
+    ],
+  },
+  {
+    id: 2,
     name: "EasyCare",
     subtitle: "A full-stack medical appointment management platform with AI-powered symptom analysis and real-time admin controls.",
     description: "Managing healthcare appointments through phone calls or manual systems leads to missed bookings, poor record-keeping, and slow admin response times. EasyCare solves this with a complete patient-to-admin workflow: patients register, browse doctors by specialization, pick a date and time, and submit appointment requests. Admins receive instant email notifications, review requests via a real-time dashboard, and schedule or cancel with automated patient email confirmations. The platform also integrates GPT-4o-mini as an AI symptom checker that returns structured medical insights including possible conditions, urgency level, recommended specialist, and warning signs. Built as a production-deployed full-stack application with JWT authentication, Cloudinary file uploads, Socket.IO real-time sync, and a comprehensive analytics dashboard.",
@@ -80,7 +155,7 @@ const projects = [
     ],
   },
   {
-    id: 2,
+    id: 3,
     name: "Table Tennis Tournament Manager",
     subtitle: "A full-stack sports management platform for tracking matches, tournaments, and player analytics in real time.",
     description: "Managing table tennis tournaments manually is error-prone and lacks meaningful performance insights. This platform solves that by providing a comprehensive system for organizing singles, doubles, and team matches across multiple tournament formats including knockout brackets and round-robin. It features real-time score updates, deep per-player analytics with shot placement visualization, and a leaderboard aggregating stats across all match contexts. Built as a production-grade web application with a modular architecture, it demonstrates end-to-end full-stack development from REST API design to interactive data visualization.",
