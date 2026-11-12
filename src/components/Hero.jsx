@@ -1,4 +1,4 @@
-import { ArrowDownRight, ArrowUpRight, Github, Linkedin } from 'lucide-react';
+import { ArrowUpRight, Github, Linkedin } from 'lucide-react';
 
 function Hero() {
   return (
@@ -16,7 +16,8 @@ function Hero() {
           style={{ animationDelay: '80ms' }}
           translate="no"
         >
-          Milan Singh
+          <span className="text-[#0c6291]">Milan</span>{' '}
+          <span className="text-[#7e1946]">Singh</span>
         </h1>
 
         <div
@@ -36,13 +37,9 @@ function Hero() {
           className="reveal-up mt-10 flex flex-wrap items-center gap-3"
           style={{ animationDelay: '220ms' }}
         >
-          <a href="#work" className="btn-primary">
-            View Selected Work
-            <ArrowDownRight size={18} aria-hidden="true" />
-          </a>
           <a
             href="mailto:singhmilan314@gmail.com"
-            className="btn-secondary"
+            className="btn-primary btn-email"
           >
             Email Me
             <ArrowUpRight size={18} aria-hidden="true" />
@@ -57,7 +54,7 @@ function Hero() {
             href="https://github.com/Mil9nn"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex size-11 items-center justify-center rounded-full border border-[#181717] bg-[#181717] text-white transition-all duration-200 hover:scale-110 hover:border-accent hover:text-accent"
+            className="inline-flex size-11 items-center justify-center rounded-full border border-white bg-[#181717] text-white transition-all duration-200 hover:scale-110 hover:border-accent hover:text-accent"
             aria-label="GitHub"
           >
             <Github size={18} className="text-white" aria-hidden="true" />
@@ -71,7 +68,6 @@ function Hero() {
           >
             <Linkedin size={18} className="text-white" aria-hidden="true" />
           </a>
-          <span className="ml-2 text-sm text-muted">Open to full-time roles</span>
         </div>
 
         <div

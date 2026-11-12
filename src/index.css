@@ -229,21 +229,12 @@
     flex-shrink: 0;
     padding: 0.125rem;
     border-radius: 9999px;
-    border: 1px solid color-mix(in oklab, var(--text) 18%, transparent);
-    background: var(--surface);
+    border: 0;
+    background: #3e92cc;
     cursor: pointer;
     transition:
-      border-color 200ms var(--ease-out-expo),
       background-color 200ms var(--ease-out-expo),
       box-shadow 200ms var(--ease-out-expo);
-  }
-
-  .dark .theme-toggle {
-    border-color: var(--border);
-  }
-
-  .theme-toggle:hover {
-    border-color: color-mix(in oklab, var(--accent) 45%, var(--border));
   }
 
   .theme-toggle:focus-visible {
@@ -303,6 +294,16 @@
     color: #042f2e;
   }
 
+  .btn-email {
+    background: #4357ad;
+  }
+
+  .btn-email:hover,
+  .dark .btn-email:hover {
+    background: #35468c;
+    color: white;
+  }
+
   .btn-secondary {
     display: inline-flex;
     align-items: center;
@@ -331,6 +332,48 @@
 
   .link-accent:hover {
     opacity: 0.8;
+  }
+
+  .project-link {
+    display: inline-flex;
+    min-height: 44px;
+    align-items: center;
+    gap: 0.5rem;
+    padding-block: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-decoration: underline;
+    text-decoration-color: transparent;
+    text-underline-offset: 0.25em;
+    transition:
+      color 150ms ease,
+      text-decoration-color 150ms ease;
+  }
+
+  .project-link:hover,
+  .project-link:focus-visible {
+    text-decoration-color: currentColor;
+  }
+
+  .project-link-study {
+    color: var(--accent);
+    cursor: pointer;
+  }
+
+  .project-link-demo {
+    color: #4357ad;
+  }
+
+  .dark .project-link-demo {
+    color: #a5b4fc;
+  }
+
+  .project-link-code {
+    color: var(--text-muted);
+  }
+
+  .project-link-code:hover {
+    color: var(--text);
   }
 
   .section-pad {

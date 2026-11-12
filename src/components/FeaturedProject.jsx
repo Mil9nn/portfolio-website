@@ -30,9 +30,9 @@ export default function FeaturedProject({ project, onOpen }) {
 
         <div className="w-full md:w-1/3">
           {project.images && project.images[0] ? (
-            <img src={project.images[0]} alt={`${project.name} screenshot`} className="w-full h-48 object-cover rounded" />
+            <img src={project.images[0]} alt={`${project.name} screenshot`} className="w-full h-48 object-cover" />
             ) : (
-            <div className="w-full h-48 bg-surface-dark rounded flex items-center justify-center text-theme-muted">Screenshot</div>
+            <div className="w-full h-48 bg-surface-dark flex items-center justify-center text-theme-muted">Screenshot</div>
           )}
           {/* architecture moved to modal; thumbnail removed for consistency */}
         </div>

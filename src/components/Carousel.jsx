@@ -26,7 +26,7 @@ export default function Carousel({ images = [] }) {
 
   return (
     <div className="relative" ref={containerRef}>
-      <div className="w-full h-56 bg-surface-dark rounded overflow-hidden flex items-center justify-center">
+      <div className="w-full h-56 bg-surface-dark overflow-hidden flex items-center justify-center">
         <img
           src={images[index]}
           alt={`screenshot ${index + 1}`}

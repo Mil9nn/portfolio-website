@@ -47,10 +47,8 @@ function Header() {
         scrolled ? 'shadow-[var(--shadow-soft)]' : ''
       }`}
       style={{
-        background: 'var(--nav-bg)',
+        background: 'var(--bg)',
         borderColor: scrolled ? 'var(--border)' : 'transparent',
-        backdropFilter: 'blur(14px)',
-        WebkitBackdropFilter: 'blur(14px)',
         paddingTop: 'env(safe-area-inset-top)',
       }}
     >
@@ -61,8 +59,9 @@ function Header() {
           translate="no"
           aria-label="Milan Singh"
         >
-          <span className="name-mark text-[clamp(1.8rem,2vw,2.6rem)] leading-none tracking-[-0.06em]">
-            MS
+          <span className="font-display text-[clamp(1.8rem,2vw,2.6rem)] font-extrabold leading-none tracking-[-0.06em]">
+            <span className="text-[#0c6291]">M</span>
+            <span className="text-[#7e1946]">S</span>
           </span>
         </a>
 
@@ -75,7 +74,7 @@ function Header() {
                 href={`#${id}`}
                 className={`group inline-flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium transition-colors duration-200 ${
                   isActive
-                    ? 'text-accent'
+                    ? 'text-[#42cafd]'
                     : 'text-muted hover:text-ink'
                 }`}
               >
@@ -83,7 +82,7 @@ function Header() {
                   aria-hidden="true"
                   className={`size-3.5 shrink-0 transition-colors duration-200 ${
                     isActive
-                      ? 'text-accent'
+                      ? 'text-[#42cafd]'
                       : 'text-muted/70 group-hover:text-ink'
                   }`}
                 />
@@ -95,14 +94,14 @@ function Header() {
 
         <div className="flex items-center gap-2">
           <ThemeToggle />
-          <a href="#contact" className="btn-primary hidden sm:inline-flex">
+          <a href="#contact" className="btn-primary btn-email hidden sm:inline-flex">
             Hire Me
           </a>
         </div>
       </div>
 
       <nav
-        className="flex gap-1 overflow-x-auto border-t border-line px-4 py-2 md:hidden"
+        className="flex gap-1 overflow-x-auto px-4 py-2 md:hidden"
         aria-label="Mobile"
         style={{ paddingBottom: 'max(0.5rem, env(safe-area-inset-bottom))' }}
       >
@@ -113,7 +112,7 @@ function Header() {
               key={id}
               href={`#${id}`}
               className={`inline-flex items-center gap-2 whitespace-nowrap rounded-md px-3 py-2 text-sm font-medium transition-colors duration-200 ${
-                isActive ? 'bg-accent-soft text-accent' : 'text-muted'
+                isActive ? 'text-[#42cafd]' : 'text-muted'
               }`}
             >
               <Icon className="size-3.5 shrink-0" aria-hidden="true" />

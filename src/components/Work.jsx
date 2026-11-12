@@ -41,7 +41,7 @@ function ProjectModal({ project, onClose }) {
       />
 
       <div
-        className="relative z-10 flex max-h-[92svh] w-full max-w-3xl flex-col overflow-hidden rounded-t-2xl border border-line bg-surface shadow-[var(--shadow-soft)] sm:rounded-2xl"
+        className="relative z-10 flex max-h-[92svh] w-full max-w-3xl flex-col overflow-hidden bg-surface shadow-[var(--shadow-soft)]"
         style={{ overscrollBehavior: 'contain' }}
       >
         <div className="flex items-start justify-between gap-4 border-b border-line px-5 py-4 sm:px-6">
@@ -89,7 +89,7 @@ function ProjectModal({ project, onClose }) {
               alt={`${project.name} interface preview`}
               width={1200}
               height={700}
-              className="mt-6 aspect-[16/9] w-full rounded-xl object-cover"
+              className="mt-6 aspect-[16/9] w-full object-cover"
               loading="lazy"
             />
           )}
@@ -151,13 +151,13 @@ function ProjectModal({ project, onClose }) {
 
         </div>
 
-        <div className="flex flex-wrap gap-3 border-t border-line px-5 py-4 sm:px-6">
+        <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 border-t border-line px-5 py-4 sm:px-6">
           {isValidUrl(project.github) && (
             <a
               href={project.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-secondary"
+              className="project-link project-link-code"
             >
               <Github size={16} aria-hidden="true" />
               View Code
@@ -168,7 +168,7 @@ function ProjectModal({ project, onClose }) {
               href={project.demo}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-primary"
+              className="project-link project-link-demo"
             >
               <ExternalLink size={16} aria-hidden="true" />
               Live Demo
@@ -213,7 +213,7 @@ function Work() {
                   <button
                     type="button"
                     onClick={() => setSelected(project)}
-                    className="group relative block w-full overflow-hidden rounded-2xl border border-line bg-surface text-left focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--accent)]"
+                    className="group relative block w-full overflow-hidden border border-line bg-surface text-left focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--accent)]"
                   >
                     <img
                       src={project.images?.[0] || project.onlineScreenshots?.[0]}
@@ -246,11 +246,11 @@ function Work() {
                     ))}
                   </div>
 
-                  <div className="mt-7 flex flex-wrap gap-3">
+                  <div className="mt-7 flex flex-wrap items-center gap-x-6 gap-y-2">
                     <button
                       type="button"
                       onClick={() => setSelected(project)}
-                      className="btn-primary"
+                      className="project-link project-link-study"
                     >
                       Case Study
                       <ArrowUpRight size={16} aria-hidden="true" />
@@ -260,8 +260,9 @@ function Work() {
                         href={project.demo}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="btn-secondary"
+                        className="project-link project-link-demo"
                       >
+                        <ExternalLink size={16} aria-hidden="true" />
                         Live Demo
                       </a>
                     )}
@@ -270,10 +271,10 @@ function Work() {
                         href={project.github}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex size-11 items-center justify-center rounded-full border border-line bg-surface text-ink transition-colors duration-200 hover:text-accent"
-                        aria-label={`${project.name} on GitHub`}
+                        className="project-link project-link-code"
                       >
                         <Github size={18} aria-hidden="true" />
+                        GitHub
                       </a>
                     )}
                   </div>
